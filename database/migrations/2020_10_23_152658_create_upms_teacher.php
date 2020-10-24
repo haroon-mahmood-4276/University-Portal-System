@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
 
 class CreateUpmsTeacher extends Migration
 {
@@ -15,7 +17,7 @@ class CreateUpmsTeacher extends Migration
     {
         Schema::create('upms_teacher', function (Blueprint $table) {
             $table->string('TCHR_ID', 11);
-            $table->string('TCHR_Password', 50)->nullable();
+            $table->string('TCHR_Password', 100)->nullable();
             $table->string('TCHR_FirstName', 50)->nullable();
             $table->string('TCHR_LastName', 50)->nullable();
             $table->string('TCHR_CNIC', 15)->nullable();
@@ -23,13 +25,16 @@ class CreateUpmsTeacher extends Migration
             $table->string('TCHR_Email', 50)->nullable();
             $table->string('TCHR_Gender', 6)->nullable();
             $table->string('TCHR_Specialty', 50)->nullable();
-            $table->string('TCHR_CCCityCode', 5)->nullable();
-            $table->string('TCHR_CCCntryCode', 5)->nullable();
+            $table->string('TCHR_PRGPCode', 3)->nullable();
+            $table->string('TCHR_PRG_SCode', 2)->nullable();
+            $table->string('TCHR_CCCityCode', 3)->nullable();
+            $table->string('TCHR_CCCntryCode', 3)->nullable();
             $table->string('TCHR_Address', 160)->nullable();
             $table->string('TCHR_SCLSchoolCode', 2)->nullable();
             $table->string('TCHR_Picture', 150)->nullable();
-            $table->integer('STD_PKID')->unique();
-            $table->timestamps();
+            $table->increments('STD_PKID');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 

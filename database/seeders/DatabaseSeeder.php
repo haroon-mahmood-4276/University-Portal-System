@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use League\CommonMark\Extension\Table\Table;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            TableUPMSAdmin::class,
+            TableUPMSCityCountry::class,
+            TableUPMSRoadmap::class,
+            TableUPMSPrograms::class,
+            TableUPMSCityCountry::class,
+            TableUPMSSchools::class
+        ]);
     }
 }

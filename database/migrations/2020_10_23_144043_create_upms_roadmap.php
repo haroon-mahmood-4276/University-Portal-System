@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateUpmsRoadmap extends Migration
 {
@@ -14,13 +15,14 @@ class CreateUpmsRoadmap extends Migration
     public function up()
     {
         Schema::create('upms_roadmap', function (Blueprint $table) {
-            $table->string('RM_CourseCode', 5);
+            $table->string('RM_CourseCode', 10);
             $table->string('RM_CourseName', 50)->nullable();
             $table->string('RM_CourseType', 50)->nullable();
             $table->integer('RM_CreditHr')->nullable();
             $table->integer('RM_Semester')->nullable();
-            $table->integer('RM_PKID')->unique();
-            $table->timestamps();
+            $table->increments('RM_PKID');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 

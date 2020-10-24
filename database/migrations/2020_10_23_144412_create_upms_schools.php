@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateUpmsSchools extends Migration
 {
@@ -14,11 +15,12 @@ class CreateUpmsSchools extends Migration
     public function up()
     {
         Schema::create('upms_schools', function (Blueprint $table) {
-            $table->string('SCL_SchoolCode', 5);
+            $table->string('SCL_SchoolCode', 2);
             $table->string('SCL_SchoolName', 50)->nullable();
             $table->string('SCL_SchoolAbb', 5)->nullable();
-            $table->integer('SCL_PKID')->unique();
-            $table->timestamps();
+            $table->increments('SCL_PKID');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 

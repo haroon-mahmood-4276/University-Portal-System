@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateUpmsAdmin extends Migration
 {
@@ -15,7 +16,7 @@ class CreateUpmsAdmin extends Migration
     {
         Schema::create('upms_admin', function (Blueprint $table) {
             $table->string('ADMIN_ID', 11);
-            $table->string('ADMIN_Password', 50)->nullable();
+            $table->string('ADMIN_Password', 100)->nullable();
             $table->string('ADMIN_FirstName', 50)->nullable();
             $table->string('ADMIN_LastName', 50)->nullable();
             $table->string('ADMIN_PhoneNo', 12)->nullable();
@@ -23,11 +24,12 @@ class CreateUpmsAdmin extends Migration
             $table->string('ADMIN_Address', 150)->nullable();
             $table->string('ADMIN_Email', 50)->nullable();
             $table->string('ADMIN_Gender', 6)->nullable();
-            $table->string('ADMIN_City', 5)->nullable();
-            $table->string('ADMIN_Country', 5)->nullable();
+            $table->string('ADMIN_CCCntryCode', 3)->nullable();
+            $table->string('ADMIN_CCCityCode', 3)->nullable();
             $table->string('ADMIN_Picture', 150)->nullable();
-            $table->integer('ADMIN_PKID')->unique();
-            $table->timestamps();
+            $table->increments('ADMIN_PKID');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 
