@@ -15,23 +15,24 @@ class TableUPMSPrograms extends Seeder
     public function run()
     {
         DB::table('upms_programs')->insert([
-            'PRG_PCode' => '001',
-            'PRG_ProgramName' => 'MCS',
-            'PRG_SCode' => '01',
-            'PRG_SectionName' => 'A',
-            'PRG_SCLSchoolCode' => '01',
-            'PRG_TotalSemester' => '4',
-            'PRG_TotalCreditHrs' => '166'
-        ]);
-
-        DB::table('upms_programs')->insert([
-            'PRG_PCode' => '002',
-            'PRG_ProgramName' => 'MIT',
-            'PRG_SCode' => '01',
-            'PRG_SectionName' => 'A',
-            'PRG_SCLSchoolCode' => '01',
-            'PRG_TotalSemester' => '4',
-            'PRG_TotalCreditHrs' => '166'
+            [
+                'PRG_PCode' => '001',
+                'PRG_ProgramName' => 'MCS',
+                'PRG_SCode' => '01',
+                'PRG_SectionName' => 'A',
+                'PRG_SCLSchoolCode' => '01',
+                'PRG_TotalSemester' => '4',
+                'PRG_TotalCreditHrs' => '166'
+            ],
+            [
+                'PRG_PCode' => '002',
+                'PRG_ProgramName' => 'MIT',
+                'PRG_SCode' => '01',
+                'PRG_SectionName' => 'A',
+                'PRG_SCLSchoolCode' => '01',
+                'PRG_TotalSemester' => '4',
+                'PRG_TotalCreditHrs' => '166'
+            ]
         ]);
     }
 }

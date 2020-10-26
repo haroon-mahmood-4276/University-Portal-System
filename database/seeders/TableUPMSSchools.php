@@ -15,15 +15,16 @@ class TableUPMSSchools extends Seeder
     public function run()
     {
         DB::table('upms_schools')->insert([
-            'SCL_SchoolCode' => '01',
-            'SCL_SchoolName' => 'School of Professional Advancement',
-            'SCL_SchoolAbb' => 'SPA',
-        ]);
-
-        DB::table('upms_schools')->insert([
-            'SCL_SchoolCode' => '02',
-            'SCL_SchoolName' => 'School of System and Technology',
-            'SCL_SchoolAbb' => 'SST',
+            [
+                'SCL_SchoolCode' => '01',
+                'SCL_SchoolName' => 'School of Professional Advancement',
+                'SCL_SchoolAbb' => 'SPA',
+            ],
+            [
+                'SCL_SchoolCode' => '02',
+                'SCL_SchoolName' => 'School of System and Technology',
+                'SCL_SchoolAbb' => 'SST',
+            ]
         ]);
     }
 }

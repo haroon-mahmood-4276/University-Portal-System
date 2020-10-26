@@ -21,7 +21,7 @@
         @yield('content')
     </div>
 
-{{-- Footer --}}
+    {{-- Footer --}}
     {{ View::make('Footer') }}
 
 
