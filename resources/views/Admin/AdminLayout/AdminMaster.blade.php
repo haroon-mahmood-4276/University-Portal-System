@@ -9,6 +9,9 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -22,7 +25,7 @@
     </div>
 
     {{-- Footer --}}
-    {{ View::make('Footer') }}
+    {{ View::make('Others.Footer') }}
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
