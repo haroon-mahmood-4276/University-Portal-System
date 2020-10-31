@@ -13,7 +13,12 @@ class AdminController extends Controller
     {
         $Data = UPMSAdmin::where(['ADMIN_ID' => $_Req->txtUserID])->first();
         if (!$Data  || !Hash::check($_Req->txtPassword, $Data->ADMIN_Password)) {
-            return "User ID or Passowrd is incorrect.";
+            $_Req->session()->flash('Msg', [
+                'MsgNo' => '1',
+                'MsgType' => 'Login Error',
+                'MsgD' => 'User ID or Passowrd is incorrect.'
+            ]);
+            return redirect('/admin/login');
         } else {
             $_Req->session()->put('Data', $Data);
             return redirect('/admin');
