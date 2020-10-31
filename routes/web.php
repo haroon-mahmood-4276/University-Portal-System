@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/admin', function () {
-    return view('Admin.Admin');
+    return view('Admin.AdminDashboard');
 });
 
 Route::view('/admin/login', 'Admin.AdminLogin');

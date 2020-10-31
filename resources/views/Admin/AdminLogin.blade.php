@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login - Admin Portal</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-
 @extends('Admin.AdminLayout.AdminMaster')
 
 @section('PageTitle', 'Login')
@@ -61,6 +46,11 @@
                 </button>
             </div>
         </form>
+    </div>
+
+
+    <div class="container blink" style="margin-top: 10vh;">
+        <img class="img-fluid" src="{{ asset('images/Brand-1.png') }}" alt="Brand Logo">
     </div>
 
 @endsection
