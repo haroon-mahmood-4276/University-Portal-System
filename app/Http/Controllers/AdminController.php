@@ -8,9 +8,8 @@ use App\Models\UPMSPrograms;
 use App\Models\UPMSSchools;
 use App\Models\UPMSStudents;
 use App\Models\UPMSTeachers;
-// use Illuminate\Contracts\Session\Session;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -58,17 +57,24 @@ class AdminController extends Controller
 
     public function StudentList()
     {
-        $Students = UPMSTeachers::select('STD_RollNo', 'STD_FirstName', 'STD_LastName');
+        $Students = UPMSStudents::select('STD_RollNo', 'STD_FirstName', 'STD_LastName');
         $Students = $Students->addSelect([
-            'STDProgram' => UPMSPrograms::select('PRG_ProgramName')->whereColumn('PRG_PCode', '=', 'upms_students.STD_STDPPCode'),
-            'SchoolAbb' => UPMSSchools::select('SCL_SchoolAbb')->whereColumn('SCL_SchoolCode', '=', 'upms_teacher.TCHR_SCLSchoolCode')
+            'STDProgram' => UPMSPrograms::select('PRG_ProgramName')->whereColumn('PRG_PCode', '=', 'upms_students.STD_PRGPCode'),
+            'STDSection' => UPMSPrograms::select('PRG_SectionName')->whereColumn('PRG_PCode', '=', 'upms_students.STD_PRGPCode')->whereColumn('PRG_SCode', '=', 'upms_students.STD_PRGSCode'),
+            'SchoolName' => UPMSSchools::select('SCL_SchoolName')->whereColumn('SCL_SchoolCode', '=', 'upms_students.STD_SCLSchoolCode'),
+            'SchoolAbb' => UPMSSchools::select('SCL_SchoolAbb')->whereColumn('SCL_SchoolCode', '=', 'upms_students.STD_SCLSchoolCode')
         ])->get();
 
         if ($Students->isEmpty()) {
             return view('Admin.AdminStdList', ['ErrMsg' => 'There is no Student in the Database']);
         } else {
-            return $Students;
-            // return view('Admin.AdminStdList', ['Students' => $Students, 'ErrMsg' => '']);
+            // return $Students;
+            return view('Admin.AdminStdList', ['Students' => $Students, 'ErrMsg' => '']);
         }
+    }
+
+    public function AddSTD(Request $Req)
+    {
+        return $Req->input();
     }
 }

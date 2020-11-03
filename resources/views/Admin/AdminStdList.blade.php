@@ -7,6 +7,9 @@
 @endsection
 
 @section('content')
+    @php
+    $SrNo = 0;
+    @endphp
     <div class="container my-5 text-center">
         <div class="table-responsive-md">
 
@@ -26,10 +29,9 @@
                         <th scope="col">User ID</th>
                         <th scope="col">Full Name</th>
                         <th scope="col">Program</th>
-                        <th scope="col">Sec</th>
                         <th scope="col">School</th>
                         <th scope="col" style="width: 10%;" class="text-center"><a class="PTCHRAdd" href=" #"
-                                id="myTCHRBtn"><i class="fa fa-plus" style="color: white" aria-hidden="true"></i></a>
+                                id="myTCHRBtn"><i class="fas fa-plus" style="color: white" aria-hidden="true"></i></a>
                         </th>
                     </tr>
                 </thead>
@@ -40,13 +42,14 @@
                             <td colspan="6">{{ $ErrMsg }}</td>
                         </tr>
                     @else
-                        @foreach ($Teachers as $TchrRow)
+
+                        @foreach ($Students as $STDRow)
                             <tr>
-                                <td>1</td>
-                                <td>{{ $TchrRow->TCHR_ID }}</td>
-                                <td>{{ $TchrRow->TCHR_FirstName . ' ' . $TchrRow->TCHR_LastName }}</td>
-                                <td>{{ $TchrRow->TCHR_Post }}</td>
-                                <td>{{ $TchrRow->SchoolName . ' ( ' . $TchrRow->SchoolAbb . ' )' }}</td>
+                                <td>{{ ++$SrNo }}</td>
+                                <td>{{ $STDRow->STD_RollNo }}</td>
+                                <td>{{ $STDRow->STD_FirstName . ' ' . $STDRow->STD_LastName }}</td>
+                                <td>{{ $STDRow->STDProgram . ' ( ' . $STDRow->STDSection . ' )' }}</td>
+                                <td>{{ $STDRow->SchoolName . ' ( ' . $STDRow->SchoolAbb . ' )' }}</td>
                                 <td class="link text-center">
                                     <a class="PDelete" href="StaffList.php?ID=&WorkAction=Delete"
                                         onClick="return confirm('Are you sure you want to delete?')"><i
