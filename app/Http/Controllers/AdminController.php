@@ -58,17 +58,17 @@ class AdminController extends Controller
 
     public function StudentList()
     {
-        $Students = UPMSTeachers::select('STD_RollNo', 'STD_FirstName', 'STD_LastName', 'TCHR_Post');
-        $TeaStudentschers = $Students->addSelect([
-            'SchoolName' => UPMSSchools::select('SCL_SchoolName')->whereColumn('SCL_SchoolCode', '=', 'upms_teacher.TCHR_SCLSchoolCode'),
+        $Students = UPMSTeachers::select('STD_RollNo', 'STD_FirstName', 'STD_LastName');
+        $Students = $Students->addSelect([
+            'STDProgram' => UPMSPrograms::select('PRG_ProgramName')->whereColumn('PRG_PCode', '=', 'upms_students.STD_STDPPCode'),
             'SchoolAbb' => UPMSSchools::select('SCL_SchoolAbb')->whereColumn('SCL_SchoolCode', '=', 'upms_teacher.TCHR_SCLSchoolCode')
         ])->get();
 
         if ($Students->isEmpty()) {
-            return view('Admin.AdminStaffList', ['ErrMsg' => 'There is no Student in the Database']);
+            return view('Admin.AdminStdList', ['ErrMsg' => 'There is no Student in the Database']);
         } else {
-            // return $Students;
-            return view('Admin.AdminStdList', ['Students' => $Students, 'ErrMsg' => '']);
+            return $Students;
+            // return view('Admin.AdminStdList', ['Students' => $Students, 'ErrMsg' => '']);
         }
     }
 }

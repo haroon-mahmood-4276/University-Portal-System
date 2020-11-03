@@ -30,8 +30,6 @@ class TableUPMSStudents extends Seeder
             'STD_CrntSemester' => '3',
             'STD_PRGPCode' => '001',
             'STD_PRGSCode' => '01',
-            'STD_STDPPCode' => '001',
-            'STD_STDPSCode' => '01',
             'STD_SCLSchoolCode' => '01'
         ]);
     }

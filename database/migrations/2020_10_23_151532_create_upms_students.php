@@ -20,8 +20,6 @@ class CreateUpmsStudents extends Migration
             $table->string('STD_FirstName', 50)->nullable();
             $table->string('STD_LastName', 50)->nullable();
             $table->string('STD_CNIC', 15)->nullable();
-            $table->string('STD_STDPPCode', 3)->nullable();
-            $table->string('STD_STDPSCode', 2)->nullable();
             $table->string('STD_Address', 150)->nullable();
             $table->string('STD_SCLSchoolCode', 2)->nullable();
             $table->string('STD_PRGPCode', 3)->nullable();
