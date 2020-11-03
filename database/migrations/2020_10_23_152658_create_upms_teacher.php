@@ -26,11 +26,12 @@ class CreateUpmsTeacher extends Migration
             $table->string('TCHR_Gender', 6)->nullable();
             $table->string('TCHR_Specialty', 50)->nullable();
             $table->string('TCHR_PRGPCode', 3)->nullable();
-            $table->string('TCHR_PRG_SCode', 2)->nullable();
+            $table->string('TCHR_PRGSCode', 2)->nullable();
             $table->string('TCHR_CCCityCode', 3)->nullable();
             $table->string('TCHR_CCCntryCode', 3)->nullable();
             $table->string('TCHR_Address', 160)->nullable();
             $table->string('TCHR_SCLSchoolCode', 2)->nullable();
+            $table->string('TCHR_Post', 50)->nullable();
             $table->string('TCHR_Picture', 150)->nullable();
             $table->increments('STD_PKID');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));

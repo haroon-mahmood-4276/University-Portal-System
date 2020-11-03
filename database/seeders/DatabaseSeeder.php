@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
             TableUPMSRoadmap::class,
             TableUPMSPrograms::class,
             TableUPMSCityCountry::class,
-            TableUPMSSchools::class
+            TableUPMSSchools::class,
+            TableUPMSStudents::class,
+            TableUPMSTeachers::class
         ]);
     }
 }

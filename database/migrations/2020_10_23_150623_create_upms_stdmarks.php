@@ -20,7 +20,7 @@ class CreateUpmsStdmarks extends Migration
             $table->string('SM_ExamName', 50)->nullable();
             $table->string('SM_RMCourseCode', 10)->nullable();
             $table->string('SM_PRGPCode', 3)->nullable();
-            $table->string('SM_PRG_SCode', 2)->nullable();
+            $table->string('SM_PRGSCode', 2)->nullable();
             $table->string('SM_Date', 15)->nullable();
             $table->string('SM_TotalMarks', 3)->nullable();
             $table->string('SM_ObtainedMarks', 3)->nullable();

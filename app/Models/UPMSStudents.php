@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
-class UPMSAdmin extends Model
+class UPMSStudents extends Model
 {
     use HasFactory;
-    protected $table = 'upms_admin';
+    protected $table = 'upms_students';
 }
