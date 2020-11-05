@@ -1,6 +1,6 @@
-<div class="modal fade bd-example-modal-xl" id="mySTDModal" tabindex="-1" role="dialog" data-backdrop="static"
+<div class="modal fade bd-example-modal-lg" id="mySTDModal" tabindex="-1" role="dialog" data-backdrop="static"
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form method="POST" action="" name="addstd">
                 <!-- Modal Header -->
@@ -69,24 +69,14 @@
                                         <label for="cbCountry">Country</label>
                                         <select name="cbCountry" class="custom-select d-block" id="cbCountry" required>
                                             <option value="00000" selected>Select</option>
-                                            <?php
-                                            $RtnValue = unipmscitycountry($dtSQLDataTable, 'VCOUNTRY', '');
-                                            if ($RtnValue == 'Y') {
-                                            while ($dtRow = mysqli_fetch_assoc($dtSQLDataTable)) {
-                                            echo "<option value='" . $dtRow[' CC_CntryCode'] . "'>" .
-                                                $dtRow['CC_CntryName'] . '</option>' ; } } ?> </select>
+                                        </select>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label for="cbCity">City</label>
                                         <select name="cbCity" class="custom-select d-block" id="cbCity" required>
                                             <option value="00000" selected>Select</option>
-                                            <?php
-                                            $RtnValue = unipmscitycountry($dtSQLDataTable, 'VCITY', '');
-                                            if ($RtnValue == 'Y') {
-                                            while ($dtRow = mysqli_fetch_assoc($dtSQLDataTable)) {
-                                            echo "<option value='" . $dtRow[' CC_CityCode'] . "'>" .
-                                                $dtRow['CC_CityName'] . '</option>' ; } } ?> </select>
+                                        </select>
                                     </div>
 
 
@@ -94,25 +84,14 @@
                                         <label for="cbSchool">School</label>
                                         <select name="cbSchool" class="custom-select d-block" id="cbSchool" required>
                                             <option value="00" selected>Select</option>
-                                            <?php
-                                            $RtnValue = unipmsschools($dtSQLDataTable, 'V', '');
-                                            if ($RtnValue == 'Y') {
-                                            while ($dtRow = mysqli_fetch_assoc($dtSQLDataTable)) {
-                                            echo "<option value='" . $dtRow[' SCL_SchoolCode'] . "'>" .
-                                                $dtRow['SCL_SchoolName'] . ' ( ' . $dtRow['SCL_SchoolAbb']
-                                                . ' )</option>' ; } } ?> </select>
+                                        </select>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label for="cbprogram">Program</label>
                                         <select name="cbProgram" class="custom-select d-block" id="cbprogram" required>
                                             <option value="00" selected>Select</option>
-                                            <?php
-                                            $RtnValue = unipmsprograms($dtSQLDataTable, 'VLOADPROGRAMS', '');
-                                            if ($RtnValue == 'Y') {
-                                            while ($dtRow = mysqli_fetch_assoc($dtSQLDataTable)) {
-                                            echo "<option value='" . $dtRow[' STDP_PCode'] . "'>" .
-                                                $dtRow['STDP_Programs'] . '</option>' ; } } ?> </select>
+                                        </select>
                                     </div>
 
                                     <div class="col-md-6 mb-3" id="combosec">
@@ -129,8 +108,6 @@
                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>

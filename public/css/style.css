@@ -15,14 +15,14 @@ body {
 
 ::-webkit-scrollbar-track-piece:vertical {
     background: lightgray;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+    /* border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px; */
 }
 
 ::-webkit-scrollbar-track-piece:horizontal {
     background: lightgray;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    /* border-top-left-radius: 15px;
+    border-top-right-radius: 15px; */
 }
 
 
@@ -405,4 +405,3 @@ table tr:hover .link a {
         opacity: 0;
     }
 }
-

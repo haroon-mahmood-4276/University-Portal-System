@@ -1,5 +1,6 @@
 <?php
 
+// use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,14 @@ Route::get('/admin/dashboard', function () {
 Route::view('/admin/login', 'Admin.AdminLogin');
 Route::post('/admin/login', 'AdminController@Login');
 
-Route::get('/admin/dashboard', 'AdminController@Dashboard');
-Route::get('/admin/student-list', 'AdminController@StudentList');
-Route::get('/admin/staff-list', 'AdminController@StaffList');
+Route::get('/admin/logout', function () {
+    Session()->forget('Data');
+    return redirect('/admin/login');
+});
+
+Route::group(['middleware' => ['AdminAuth']], function () {
+    Route::get('/admin/dashboard', 'AdminController@Dashboard');
+    Route::get('/admin/student-list', 'AdminController@StudentList');
+    Route::get('/admin/staff-list', 'AdminController@StaffList');
+    Route::post('/admin/student/add', 'AdminController@AddSTD');
+});

@@ -31,7 +31,7 @@
                         <th scope="col">Program</th>
                         <th scope="col">School</th>
                         <th scope="col" style="width: 10%;" class="text-center"><a class="PTCHRAdd" href=" #"
-                                id="myTCHRBtn"><i class="fas fa-plus" style="color: white" aria-hidden="true"></i></a>
+                                id="mySTDBtn"><i class="fas fa-plus" style="color: white" aria-hidden="true"></i></a>
                         </th>
                     </tr>
                 </thead>
@@ -62,4 +62,7 @@
             </table>
         </div>
     </div>
+
+    {{ View::make('PopupModals.ModalAddSTD') }}
+
 @endsection

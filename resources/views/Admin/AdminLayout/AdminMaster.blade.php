@@ -44,6 +44,8 @@
     </script>
 
     <script src="https://kit.fontawesome.com/7c58c9e194.js" crossorigin="anonymous"></script>
+
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>
