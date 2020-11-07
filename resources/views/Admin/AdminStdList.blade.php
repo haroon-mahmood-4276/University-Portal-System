@@ -11,18 +11,27 @@
     $SrNo = 0;
     @endphp
     <div class="container my-5 text-center">
-        <div class="table-responsive-md">
 
-            <div class="input-group mb-3">
-                <input class="form-control" id="myInput" type="text" placeholder="Search.." autofocus>
-                <div class="input-group-append">
-                    <button class="btn btn-UNi" type="submit">Refresh</button>
-                </div>
+        <div class="input-group mb-3">
+            <input class="form-control" id="myInput" type="text" placeholder="Search.." autofocus>
+            <div class="input-group-append">
+                <button class="btn btn-UNi" type="submit">Refresh</button>
             </div>
+        </div>
 
-            <br>
+        @if (session('Msg'))
+            <div class="alert alert-{{ session('Msg.MsgType') }} alert-dismissible fade show" role="alert">
+                <strong>{{ session('Msg.MsgNo') }} - {{ session('Msg.MsgD') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </strong>
+            </div>
+            {{ Session::forget('Msg') }}
+        @endif
+
+        <div class="table-responsive-md">
             <table class="table table-hover">
-
                 <thead>
                     <tr class="bg-UNi">
                         <th scope="col">#</th>
@@ -46,7 +55,7 @@
                         @foreach ($Students as $STDRow)
                             <tr>
                                 <td>{{ ++$SrNo }}</td>
-                                <td>{{ $STDRow->STD_RollNo }}</td>
+                                <td>{{ strtoupper($STDRow->STD_RollNo) }}</td>
                                 <td>{{ $STDRow->STD_FirstName . ' ' . $STDRow->STD_LastName }}</td>
                                 <td>{{ $STDRow->STDProgram . ' ( ' . $STDRow->STDSection . ' )' }}</td>
                                 <td>{{ $STDRow->SchoolName . ' ( ' . $STDRow->SchoolAbb . ' )' }}</td>

@@ -33,4 +33,5 @@ Route::group(['middleware' => ['AdminAuth']], function () {
     //APIs
     Route::get('/admin/GetCitiesByCountryId', 'AdminController@GetCitiesByCountryId');
     Route::get('/admin/GetProgramBySchoolId', 'AdminController@GetProgramBySchoolId');
+    Route::get('/admin/GetSectionByProgramId', 'AdminController@GetSectionByProgramId');
 });

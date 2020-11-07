@@ -39,19 +39,19 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="txtfirstname">First Name</label>
                                         <input type="text" class="form-control" id="txtfirstname" name="txtFirstName"
-                                            placeholder="First Name" value="" required>
+                                            placeholder="First Name" value="" maxlength="50" required>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label for="txtlastname">Last Name</label>
                                         <input type="text" class="form-control" id="txtlastname" name="txtLastName"
-                                            placeholder="Last Name" value="" required>
+                                            placeholder="Last Name" value="" maxlength="50" required>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label for="txtEmail">Email</label>
                                         <input type="email" class="form-control" id="txtEmail" name="txtEmail"
-                                            placeholder="Email" value="" required>
+                                            placeholder="Email" value="" maxlength="60" required>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
@@ -112,6 +112,28 @@
                                         </select>
                                     </div>
 
+                                    <div class="col-md-12 mb-3">
+                                        <label for="cbCurrentSemester">Current Semester</label>
+                                        <select name="cbCurrentSemester" class="custom-select d-block" id="cbCurrentSemester" required>
+                                            <option value="0" selected>Select</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-12 mb-3">
+                                        <label for="txtAddress">Address</label>
+                                            <textarea class="form-control" id="txtAddress" name="txtAddress"
+                                                placeholder="Address" rows="4" maxlength="150" required></textarea>
+                                    </div>
+
+
                                     <div class="col-md-12 my-3">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="customFile">
@@ -122,7 +144,7 @@
                             </div>
                         </div>
 
-                        <div class="card card-animation my-3">
+                        {{-- <div class="card card-animation my-3">
                             <div class="card-body">
                                 <h4 class="card-title">Guardian Information</h4>
                                 <div class="row">
@@ -158,7 +180,7 @@
 
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 

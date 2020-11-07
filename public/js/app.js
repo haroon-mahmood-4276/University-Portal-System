@@ -28,50 +28,49 @@ $(document).ready(function () {
         });
     });
 
-    $('#cbCountry').on('change', function () {
+    $('#cbSchool').on('change', function () {
 
-        var CountryId = $(this).val();
-
-        var Data = "";
-
-        $.ajax({
-            type: "get",
-            url: '/admin/getcitiesbycountryid',
-            dataType: 'json',
-            data: {
-                'id': CountryId
-            },
-            success: function (response) {
-                Data += '<option value="000" selected>Select</option>';
-                for (let index = 0; index < response.length; index++) {
-                    Data += '<option value="' + response[index].CC_CityCode + '">' + response[index].CC_CityName + '</option>';
-                }
-                $('#cbCity').html(Data);
-            }
-        });
-    });
-
-    $('#cbCountry').on('change', function () {
-
-        var CountryId = $(this).val();
+        var SchoolId = $(this).val();
 
         var Data = "";
 
         $.ajax({
             type: "get",
-            url: '/admin/getcitiesbycountryid',
+            url: '/admin/GetProgramBySchoolId',
             dataType: 'json',
             data: {
-                'id': CountryId
+                'id': SchoolId
             },
             success: function (response) {
                 Data += '<option value="000" selected>Select</option>';
                 for (let index = 0; index < response.length; index++) {
-                    Data += '<option value="' + response[index].CC_CityCode + '">' + response[index].CC_CityName + '</option>';
+                    Data += '<option value="' + response[index].PRG_PCode + '">' + response[index].PRG_ProgramName + '</option>';
                 }
-                $('#cbCity').html(Data);
+                $('#cbprogram').html(Data);
             }
         });
     });
 
+    $('#cbprogram').on('change', function () {
+
+        var ProgramId = $(this).val();
+
+        var Data = "";
+
+        $.ajax({
+            type: "get",
+            url: '/admin/GetSectionByProgramId',
+            dataType: 'json',
+            data: {
+                'id': ProgramId
+            },
+            success: function (response) {
+                Data += '<option value="000" selected>Select</option>';
+                for (let index = 0; index < response.length; index++) {
+                    Data += '<option value="' + response[index].PRG_SCode + '">' + response[index].PRG_SectionName + '</option>';
+                }
+                $('#cbSection').html(Data);
+            }
+        });
+    });
 });
