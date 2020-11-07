@@ -16,7 +16,7 @@ class TableUPMSTeachers extends Seeder
     public function run()
     {
         DB::table('upms_teacher')->insert([
-            'TCHR_ID' => 'T2019027012',
+            'TCHR_ID' => 't2019027012',
             'TCHR_Password' => Hash::make('123456'),
             'TCHR_FirstName' => 'Haroon',
             'TCHR_LastName' => 'Mahmood',

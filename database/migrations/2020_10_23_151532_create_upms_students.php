@@ -16,7 +16,7 @@ class CreateUpmsStudents extends Migration
     {
         Schema::create('upms_students', function (Blueprint $table) {
             $table->string('STD_RollNo', 11);
-            $table->string('STD_Password', 100)->nullable();
+            $table->string('STD_Password', 1500)->nullable();
             $table->string('STD_FirstName', 50)->nullable();
             $table->string('STD_LastName', 50)->nullable();
             $table->string('STD_CNIC', 15)->nullable();

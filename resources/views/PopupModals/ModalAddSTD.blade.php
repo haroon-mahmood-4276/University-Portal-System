@@ -2,7 +2,9 @@
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form method="POST" action="" name="addstd">
+            <form method="POST" action="/admin/student/add" name="addstd">
+
+                @csrf
                 <!-- Modal Header -->
                 <div class="modal-header bg-UNi">
                     <h4 class="modal-title mr-auto">Add Student</h4>
@@ -68,14 +70,18 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="cbCountry">Country</label>
                                         <select name="cbCountry" class="custom-select d-block" id="cbCountry" required>
-                                            <option value="00000" selected>Select</option>
+                                            <option value="000" selected>Select</option>
+                                            @foreach ($Country as $item)
+                                                <option value="{{ $item->CC_CntryCode }}">{{ $item->CC_CntryName }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label for="cbCity">City</label>
                                         <select name="cbCity" class="custom-select d-block" id="cbCity" required>
-                                            <option value="00000" selected>Select</option>
+                                            <option value="000" selected>Select</option>
                                         </select>
                                     </div>
 
@@ -84,21 +90,25 @@
                                         <label for="cbSchool">School</label>
                                         <select name="cbSchool" class="custom-select d-block" id="cbSchool" required>
                                             <option value="00" selected>Select</option>
+                                            @foreach ($Schools as $item)
+                                                <option value="{{ $item->SCL_SchoolCode }}">
+                                                    {{ $item->SCL_SchoolName . ' ( ' . $item->SCL_SchoolAbb . ' )' }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label for="cbprogram">Program</label>
                                         <select name="cbProgram" class="custom-select d-block" id="cbprogram" required>
-                                            <option value="00" selected>Select</option>
+                                            <option value="000" selected>Select</option>
                                         </select>
                                     </div>
 
                                     <div class="col-md-6 mb-3" id="combosec">
                                         <label for="cbSection">Section</label>
                                         <select name="cbSection" class="custom-select d-block" id="cbSection" required>
-                                            <option value="01" selected>A</option>
-                                            <option value="02">B</option>
+                                            <option value="00" selected>Select</option>
                                         </select>
                                     </div>
 

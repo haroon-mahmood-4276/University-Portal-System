@@ -1,6 +1,6 @@
 @extends('Admin.AdminLayout.AdminMaster')
 
-@section('PageTitle', 'Staff List')
+@section('PageTitle', 'Students List')
 
 @section('PageHeader')
     {{ View::make('Admin.AdminLayout.AdminHeader') }}
@@ -63,6 +63,6 @@
         </div>
     </div>
 
-    {{ View::make('PopupModals.ModalAddSTD') }}
+    {{ View::make('PopupModals.ModalAddSTD', ['Country' => $Country, 'Schools' => $Schools]) }}
 
 @endsection

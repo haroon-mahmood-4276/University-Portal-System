@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Crypt;
 class TableUPMSAdmin extends Seeder
 {
     /**
@@ -16,8 +16,8 @@ class TableUPMSAdmin extends Seeder
     public function run()
     {
         DB::table('upms_admin')->insert([
-            'ADMIN_ID' => 'A2019027012',
-            'ADMIN_Password' => Hash::make('123456'),
+            'ADMIN_ID' => 'a2019027012',
+            'ADMIN_Password' => Crypt::encrypt('123456'),
             'ADMIN_FirstName' => 'Haroon',
             'ADMIN_LastName' => 'Mahmood',
             'ADMIN_PhoneNo' => '1111-1111111',

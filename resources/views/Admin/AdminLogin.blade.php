@@ -17,6 +17,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
             </div>
+            {{ Session::forget('Msg') }}
         @endif
 
         <form action="/admin/login" method="POST">
@@ -25,7 +26,7 @@
                 <label for="InputEmail">User ID</label>
                 <div class="input-group mb-3">
                     <input type="text" id="txtUserID" name="txtUserID" class="form-control" placeholder="User ID"
-                        aria-label="User ID" aria-describedby="basic-addon2" required>
+                        maxlength="11" minlength="11" aria-label="User ID" aria-describedby="basic-addon2" required>
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon">@uni.edu.pk</span>
                     </div>
@@ -37,7 +38,7 @@
                 <label for="InputPassword">Password</label>
                 <!-- <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> -->
                 <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Password"
-                    required>
+                    minlength="6" required>
 
             </div>
             <div class="form-actions">

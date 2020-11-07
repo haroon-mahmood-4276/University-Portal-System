@@ -37,7 +37,7 @@
                     style="border: 1px solid #224172; padding: 5px;" id="action-menu-1-menu">
                     <a target="_blank" href="{{ asset('images/Logo-2.png') }}"> <img
                             src="{{ asset('images/Logo-2.png') }}" class="mb-3" width="50%"></a>
-                    <p class="text-muted"> {{ Session('Data')->ADMIN_ID }} </p>
+                    <p class="text-muted"> {{ strtoupper(Session('Data')->ADMIN_ID) }} </p>
                     <p class="text-muted">{{ Session('Data')->ADMIN_FirstName . ' ' . Session('Data')->ADMIN_LastName }}
                     </p>
                     <div class="dropdown-divider"></div>

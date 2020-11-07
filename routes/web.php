@@ -32,4 +32,9 @@ Route::group(['middleware' => ['AdminAuth']], function () {
     Route::get('/admin/student-list', 'AdminController@StudentList');
     Route::get('/admin/staff-list', 'AdminController@StaffList');
     Route::post('/admin/student/add', 'AdminController@AddSTD');
+
+    //APIs
 });
+
+Route::get('/admin/GetCitiesByCountryId', 'AdminController@GetCitiesByCountryId');
+Route::get('/admin/GetProgramBySchoolId', 'AdminController@GetProgramBySchoolId');

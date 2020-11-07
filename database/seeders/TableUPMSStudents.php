@@ -16,7 +16,7 @@ class TableUPMSStudents extends Seeder
     public function run()
     {
         DB::table('upms_students')->insert([
-            'STD_RollNo' => 'F2019027012',
+            'STD_RollNo' => 'f2019027012',
             'STD_Password' => Hash::make('123456'),
             'STD_FirstName' => 'Haroon',
             'STD_LastName' => 'Mahmood',

@@ -17,7 +17,7 @@ class CreateUpmsTeacher extends Migration
     {
         Schema::create('upms_teacher', function (Blueprint $table) {
             $table->string('TCHR_ID', 11);
-            $table->string('TCHR_Password', 100)->nullable();
+            $table->string('TCHR_Password', 1500)->nullable();
             $table->string('TCHR_FirstName', 50)->nullable();
             $table->string('TCHR_LastName', 50)->nullable();
             $table->string('TCHR_CNIC', 15)->nullable();

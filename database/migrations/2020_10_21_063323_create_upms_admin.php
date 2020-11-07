@@ -16,7 +16,7 @@ class CreateUpmsAdmin extends Migration
     {
         Schema::create('upms_admin', function (Blueprint $table) {
             $table->string('ADMIN_ID', 11);
-            $table->string('ADMIN_Password', 100)->nullable();
+            $table->string('ADMIN_Password', 1500)->nullable();
             $table->string('ADMIN_FirstName', 50)->nullable();
             $table->string('ADMIN_LastName', 50)->nullable();
             $table->string('ADMIN_PhoneNo', 12)->nullable();
