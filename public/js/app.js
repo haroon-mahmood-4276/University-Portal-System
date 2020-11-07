@@ -13,7 +13,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "get",
-            url: '/admin/getcitiesbycountryid',
+            url: '/admin/GetCitiesByCountryId',
             dataType: 'json',
             data: {
                 'id': CountryId
@@ -26,6 +26,13 @@ $(document).ready(function () {
                 $('#cbCity').html(Data);
             }
         });
+    });
+
+    $('#cbCountry').on('change', function () {
+
+        var CountryId = $(this).val();
+
+        var Data = "";
 
         $.ajax({
             type: "get",
@@ -42,6 +49,13 @@ $(document).ready(function () {
                 $('#cbCity').html(Data);
             }
         });
+    });
+
+    $('#cbCountry').on('change', function () {
+
+        var CountryId = $(this).val();
+
+        var Data = "";
 
         $.ajax({
             type: "get",
@@ -58,8 +72,6 @@ $(document).ready(function () {
                 $('#cbCity').html(Data);
             }
         });
-
-        
     });
 
 });

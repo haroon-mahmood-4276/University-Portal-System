@@ -14,27 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/admin/dashboard', function () {
-    return view('Admin.AdminDashboard');
-});
-
-Route::view('/admin/login', 'Admin.AdminLogin');
+//Route::view('/admin/login', 'Admin.AdminLogin');
 Route::post('/admin/login', 'AdminController@Login');
 
 Route::get('/admin/logout', function () {
-    Session()->forget('Data');
-    return redirect('/admin/login');
+    Session()->forget('Admin');
+    return redirect('admin/login');
 });
 
 Route::group(['middleware' => ['AdminAuth']], function () {
+
+    Route::view('/admin/login', 'Admin.AdminLogin');
     Route::get('/admin/dashboard', 'AdminController@Dashboard');
     Route::get('/admin/student-list', 'AdminController@StudentList');
     Route::get('/admin/staff-list', 'AdminController@StaffList');
     Route::post('/admin/student/add', 'AdminController@AddSTD');
 
     //APIs
+    Route::get('/admin/GetCitiesByCountryId', 'AdminController@GetCitiesByCountryId');
+    Route::get('/admin/GetProgramBySchoolId', 'AdminController@GetProgramBySchoolId');
 });
-
-Route::get('/admin/GetCitiesByCountryId', 'AdminController@GetCitiesByCountryId');
-Route::get('/admin/GetProgramBySchoolId', 'AdminController@GetProgramBySchoolId');

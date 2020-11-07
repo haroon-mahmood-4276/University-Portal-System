@@ -25,7 +25,7 @@ class AdminController extends Controller
             return redirect('/admin/login');
         } else {
             $_Req->session()->forget('Msg');
-            $_Req->session()->put('Data', $Data);
+            $_Req->session()->put('Admin', $Data);
             return redirect('/admin/dashboard');
         }
     }
