@@ -13,6 +13,7 @@ body {
     width: 15px;
 }
 
+
 ::-webkit-scrollbar-track-piece:vertical {
     background: lightgray;
     /* border-top-left-radius: 15px;
@@ -404,4 +405,8 @@ table tr:hover .link a {
     100% {
         opacity: 0;
     }
+}
+
+.modal-header, .modal-footer{
+    border-radius: 4px;
 }

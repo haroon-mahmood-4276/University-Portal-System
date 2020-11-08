@@ -1,10 +1,10 @@
 <header class="container">
 
     <nav class="navbar navbar-expand-md navbar-light bg-white">
-
+        <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">
             <img src="{{ asset('images/Logo-2.png') }}" width="70" height="57" class="d-inline-block align-top"
                 alt="UNi Logo">
-      
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fas fa-caret-down fa-lg" style="color: #224172;"></span>
@@ -38,7 +38,8 @@
                     <a target="_blank" href="{{ asset('images/Logo-2.png') }}"> <img
                             src="{{ asset('images/Logo-2.png') }}" class="mb-3" width="50%"></a>
                     <p class="text-muted"> {{ strtoupper(Session('Admin')->ADMIN_ID) }} </p>
-                    <p class="text-muted">{{ Session('Admin')->ADMIN_FirstName . ' ' . Session('Admin')->ADMIN_LastName }}
+                    <p class="text-muted">
+                        {{ Session('Admin')->ADMIN_FirstName . ' ' . Session('Admin')->ADMIN_LastName }}
                     </p>
                     <div class="dropdown-divider"></div>
                     <a href="/admin/logout" class="btn btn-UNi" style="color: white;">Logout</a>

@@ -10,12 +10,19 @@
     @php
     $SrNo = 0;
     @endphp
-    <div class="container my-5 text-center">
+    <div class="container my-4 text-center">
 
-        <div class="input-group mb-3">
-            <input class="form-control" id="myInput" type="text" placeholder="Search.." autofocus>
-            <div class="input-group-append">
-                <button class="btn btn-UNi" type="submit">Refresh</button>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="addon-wrapping"><i class="fab fa-searchengin" style="color: #224172;"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="myInput" name="myInput" placeholder="Search..."
+                        aria-label="Username" aria-describedby="addon-wrapping" autofocus>
+                </div>
+
             </div>
         </div>
 

@@ -98,48 +98,59 @@ class AdminController extends Controller
     public function AddSTD(Request $Req)
     {
         // return $Req->input();
-
-        $Gender = '';
-        if($Req->txtCNIC[14] == '1' || $Req->txtCNIC[14] == '3' || $Req->txtCNIC[14] == '5' || $Req->txtCNIC[14] == '7' || $Req->txtCNIC[14] == '9' ){
-            $Gender = 'Male';
-        }else {
-            $Gender = 'Female';
-        }
-
-        echo $Gender;
-
-        $StudentsData = new UPMSStudents;
-
-        $StudentsData->STD_RollNo = strtolower($Req->txtUserID);
-        $StudentsData->STD_Password = Crypt::encrypt($Req->txtUserPass);
-        $StudentsData->STD_FirstName = $Req->txtFirstName;
-        $StudentsData->STD_LastName = $Req->txtLastName;
-        $StudentsData->STD_CNIC = $Req->txtCNIC;
-        $StudentsData->STD_Address = $Req->txtAddress;
-        $StudentsData->STD_SCLSchoolCode = $Req->cbSchool;
-        $StudentsData->STD_PRGPCode = $Req->cbProgram;
-        $StudentsData->STD_PRGSCode = $Req->cbSection;
-        $StudentsData->STD_CrntSemester = $Req->cbCurrentSemester;
-        $StudentsData->STD_PhoneNo = $Req->txtPhoneNo;
-        $StudentsData->STD_Email = $Req->txtEmail;
-        $StudentsData->STD_Gender = $Gender;
-        $StudentsData->STD_CCCityCode = $Req->cbCity;
-        $StudentsData->STD_CCCntryCode = $Req->cbCountry;
-        $StudentsData->STD_Picture = '';
-
-        if($StudentsData->save()){
+        $Data = UPMSStudents::where(['STD_RollNo' => strtolower($Req->txtUserID)])->first();
+        if ($Data) {
             $Req->session()->put('Msg', [
                 'MsgNo' => '1',
-                'MsgType' => 'success',
-                'MsgD' => 'Data is successfully saved.'
+                'MsgType' => 'info',
+                'MsgD' => 'This student is already exists.'
             ]);
             return redirect('/admin/student-list');
-        }else {
-            $Req->session()->put('Msg', [
-                'MsgNo' => '2',
-                'MsgType' => 'danger',
-                'MsgD' => 'Data could saved'
-            ]);
+        }
+        else {
+
+            $Gender = '';
+            if($Req->txtCNIC[14] == '1' || $Req->txtCNIC[14] == '3' || $Req->txtCNIC[14] == '5' || $Req->txtCNIC[14] == '7' || $Req->txtCNIC[14] == '9' ){
+                $Gender = 'Male';
+            }else {
+                $Gender = 'Female';
+            }
+
+            echo $Gender;
+
+            $StudentsData = new UPMSStudents;
+
+            $StudentsData->STD_RollNo = strtolower($Req->txtUserID);
+            $StudentsData->STD_Password = Crypt::encrypt($Req->txtUserPass);
+            $StudentsData->STD_FirstName = $Req->txtFirstName;
+            $StudentsData->STD_LastName = $Req->txtLastName;
+            $StudentsData->STD_CNIC = $Req->txtCNIC;
+            $StudentsData->STD_Address = $Req->txtAddress;
+            $StudentsData->STD_SCLSchoolCode = $Req->cbSchool;
+            $StudentsData->STD_PRGPCode = $Req->cbProgram;
+            $StudentsData->STD_PRGSCode = $Req->cbSection;
+            $StudentsData->STD_CrntSemester = $Req->cbCurrentSemester;
+            $StudentsData->STD_PhoneNo = $Req->txtPhoneNo;
+            $StudentsData->STD_Email = $Req->txtEmail;
+            $StudentsData->STD_Gender = $Gender;
+            $StudentsData->STD_CCCityCode = $Req->cbCity;
+            $StudentsData->STD_CCCntryCode = $Req->cbCountry;
+            $StudentsData->STD_Picture = '';
+
+            if($StudentsData->save()){
+                $Req->session()->put('Msg', [
+                    'MsgNo' => '1',
+                    'MsgType' => 'success',
+                    'MsgD' => 'Data is successfully saved.'
+                ]);
+                return redirect('/admin/student-list');
+            }else {
+                $Req->session()->put('Msg', [
+                    'MsgNo' => '2',
+                    'MsgType' => 'danger',
+                    'MsgD' => 'Data could saved'
+                ]);
+            }
         }
     }
 }
