@@ -4,6 +4,18 @@ $(document).ready(function () {
         $("#mySTDModal").modal();
     });
 
+    $("#myTCHRBtn").click(function () {
+        $("#myTCHRModal").modal();
+    });
+
+    $("#myProgramBtn").click(function () {
+        $("#myProgramModal").modal();
+    });
+
+    $("#mySchoolBtn").click(function () {
+        $("#mySchoolModal").modal();
+    });
+
     //
     $('#cbCountry').on('change', function () {
 
@@ -80,4 +92,5 @@ $(document).ready(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
         });
     });
+
 });

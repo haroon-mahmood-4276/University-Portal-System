@@ -15,20 +15,21 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 mb-3">
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="addon-wrapping"><i class="fab fa-searchengin" style="color: #224172;"></i></span>
+                <div class="input-group m-2 border rounded-pill p-1 searchbar"
+                    style="border-radius: 10px; border: 2px solid #224172 !important;">
+                    <div class="input-group-prepend border-0">
+                        <button id="button-addon4" type="button" class="btn btn-link"><i class="fab fa-searchengin"
+                                style="color: #224172;"></i></button>
                     </div>
-                    <input type="text" class="form-control" id="myInput" name="myInput" placeholder="Search..."
-                        aria-label="Username" aria-describedby="addon-wrapping" autofocus>
+                    <input type="search" placeholder="What're you searching for?" id="myInput" name="myInput"
+                        aria-describedby="button-addon4" class="form-control bg-none border-0">
                 </div>
-
             </div>
         </div>
 
         @if (session('Msg'))
             <div class="alert alert-{{ session('Msg.MsgType') }} alert-dismissible fade show" role="alert">
-                <strong>{{ session('Msg.MsgNo') }} - {{ session('Msg.MsgD') }}
+                <strong>{{ session('Msg.MsgD') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -46,7 +47,7 @@
                         <th scope="col">Full Name</th>
                         <th scope="col">Program</th>
                         <th scope="col">School</th>
-                        <th scope="col" style="width: 10%;" class="text-center"><a class="PTCHRAdd" href=" #"
+                        <th scope="col" style="width: 10%;" class="text-center"><a href="#"
                                 id="mySTDBtn"><i class="fas fa-plus" style="color: white" aria-hidden="true"></i></a>
                         </th>
                     </tr>
@@ -67,7 +68,7 @@
                                 <td>{{ $STDRow->STDProgram . ' ( ' . $STDRow->STDSection . ' )' }}</td>
                                 <td>{{ $STDRow->SchoolName . ' ( ' . $STDRow->SchoolAbb . ' )' }}</td>
                                 <td class="link text-center">
-                                    <a class="PDelete" href="StaffList.php?ID=&WorkAction=Delete"
+                                    <a class="PDelete" href="/admin/student/delete/{{ $STDRow->STD_RollNo }}"
                                         onClick="return confirm('Are you sure you want to delete?')"><i
                                             class="far fa-trash-alt" style="color: #224172" aria-hidden="true"></i></a>
                                 </td>

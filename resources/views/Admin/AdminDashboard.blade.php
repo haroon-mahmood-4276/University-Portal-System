@@ -10,8 +10,19 @@
     <div class="container mb-5 text-center">
         <!-- UMT Numbers -->
         <div class="my-4" style="color: #064473;">
+            @if (session('Msg'))
+                <div class="alert alert-{{ session('Msg.MsgType') }} alert-dismissible fade show" role="alert">
+                    <strong>{{ session('Msg.MsgD') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </strong>
+                </div>
+                {{ Session::forget('Msg') }}
+            @endif
             <div>
                 <div class="card-deck">
+
                     <div class="card card-animation">
                         <span class="badge badge-pill badge-primary"
                             style="position: absolute; background-color: #224172; top: 5px; right: 5px;"><a href=" #"
@@ -19,11 +30,12 @@
                                     aria-hidden="true"></i></a></span>
 
                         <div class="card-body">
-                            <h2 class='card-title'>{{ $Schools }}</h2>
+                            <h2 class='card-title'>{{ $SchoolsCount }}</h2>
                             <p class="card-text">School(s)</p>
                         </div>
 
                     </div>
+
                     <div class="card card-animation">
                         <span class="badge badge-pill badge-primary "
                             style="position: absolute; background-color: #224172; top: 5px; right: 5px;"><a href=" #"
@@ -31,22 +43,26 @@
                                     aria-hidden="true"></i></a></span>
 
                         <div class="card-body">
-                            <h2 class='card-title'>{{ $Programs }}</h2>
+                            <h2 class='card-title'>{{ $ProgramsCount }}</h2>
                             <p class="card-text">Program(s)</p>
                         </div>
                     </div>
                     <div class="card card-animation">
-                        <div class="card-body">
-                            <h2 class='card-title'>{{ $Teachers }}</h2>
-                            <p class="card-text">Faculty Member(s)</p>
-                        </div>
+                        <a href="{{ url('/admin/staff-list') }}" style="text-decoration: none;color: #224172">
+                            <div class="card-body">
+                                <h2 class='card-title'>{{ $TeachersCount }}</h2>
+                                <p class="card-text">Faculty Member(s)</p>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="card card-animation">
-                        <div class="card-body">
-                            <h2 class='card-title'>{{ $Students }}</h2>
-                            <p class="card-text">Student(s)</p>
-                        </div>
+                        <a href="{{ url('/admin/student-list') }}" style="text-decoration: none;color: #224172;">
+                            <div class="card-body">
+                                <h2 class='card-title'>{{ $StudentsCount }}</h2>
+                                <p class="card-text">Student(s)</p>
+                            </div>
+                        </a>
                     </div>
 
 
@@ -103,4 +119,9 @@
             </div>
         </div>
     </div>
+
+    {{ View::make('PopupModals.ModalAddPrograms', ['Schools' => $Schools]) }}
+
+    {{ View::make('PopupModals.ModalAddSchools') }}
+
 @endsection
