@@ -1,7 +1,7 @@
 <header class="container">
 
     <nav class="navbar navbar-expand-md navbar-light bg-white">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('images/Logo-2.png') }}" width="70" height="57" class="d-inline-block align-top"
                 alt="UNi Logo">
         </a>

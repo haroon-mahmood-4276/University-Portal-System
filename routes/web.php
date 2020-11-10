@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/admin/login', 'AdminController@Login');
+Route::get('/', function () {
+    return view('Others.Index');
+});
 
+
+Route::post('/admin/login', 'AdminController@Login');
 Route::get('/admin/logout', function () {
     Session()->forget('Admin');
-    return redirect('admin/login');
+    return redirect('/');
 });
 
 Route::group(['middleware' => ['AdminAuth']], function () {

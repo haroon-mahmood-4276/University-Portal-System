@@ -42,7 +42,7 @@
                         {{ Session('Admin')->ADMIN_FirstName . ' ' . Session('Admin')->ADMIN_LastName }}
                     </p>
                     <div class="dropdown-divider"></div>
-                    <a href="/admin/logout" class="btn btn-UNi" style="color: white;">Logout</a>
+                    <a href="/admin/logout" class="btn btn-UNi" style="color: white;"><i class="fas fa-power-off"></i></a>
                 </div>
             </div>
         </div>

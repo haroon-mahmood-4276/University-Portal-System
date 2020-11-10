@@ -1,4 +1,4 @@
-@extends('Admin.AdminLayout.AdminMaster')
+@extends('Others.Master')
 
 @section('PageTitle', 'Staff List')
 
