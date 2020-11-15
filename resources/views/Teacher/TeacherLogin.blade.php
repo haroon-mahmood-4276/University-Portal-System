@@ -1,6 +1,6 @@
 @extends('Others.Master')
 
-@section('PageTitle', 'Admin Login')
+@section('PageTitle', 'Teacher Login')
 
 @section('PageHeader')
     {{ View::make('Others.LoginHeader') }}
@@ -21,7 +21,7 @@
             {{ Session::forget('Msg') }}
         @endif
 
-        <form action="/admin/login" method="POST">
+        <form action="/teacher/login" method="POST">
             @csrf
             <div class="form-group">
                 <label for="InputEmail">User ID</label>

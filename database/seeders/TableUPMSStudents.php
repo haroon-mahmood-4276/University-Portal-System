@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class TableUPMSStudents extends Seeder
 {
@@ -17,7 +17,7 @@ class TableUPMSStudents extends Seeder
     {
         DB::table('upms_students')->insert([
             'STD_RollNo' => 'f2019027012',
-            'STD_Password' => Hash::make('123456'),
+            'STD_Password' => Crypt::encrypt('123456'),
             'STD_FirstName' => 'Haroon',
             'STD_LastName' => 'Mahmood',
             'STD_PhoneNo' => '1111-1111111',

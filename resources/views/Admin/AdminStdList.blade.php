@@ -80,6 +80,6 @@
         </div>
     </div>
 
-    {{ View::make('PopupModals.ModalAddSTD', ['Country' => $Country, 'Schools' => $Schools]) }}
+    {{ View::make('PopupModals.ModalAddSTD') }}
 
 @endsection

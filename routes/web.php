@@ -19,11 +19,7 @@ Route::get('/', function () {
 });
 
 
-Route::post('/admin/login', 'AdminController@Login');
-Route::get('/admin/logout', function () {
-    Session()->forget('Admin');
-    return redirect('/');
-});
+
 
 Route::group(['middleware' => ['AdminAuth']], function () {
 
@@ -41,8 +37,24 @@ Route::group(['middleware' => ['AdminAuth']], function () {
     Route::post('/admin/programs/add', 'AdminController@AddPrograms');
     Route::post('/admin/schools/add', 'AdminController@AddSchools');
 
-    //APIs
-    Route::get('/admin/GetCitiesByCountryId', 'AdminController@GetCitiesByCountryId');
-    Route::get('/admin/GetProgramBySchoolId', 'AdminController@GetProgramBySchoolId');
-    Route::get('/admin/GetSectionByProgramId', 'AdminController@GetSectionByProgramId');
+    Route::post('/admin/login', 'AdminController@Login');
+    Route::get('/admin/logout', function () {
+        Session()->forget('Admin');
+        return redirect('/');
+    });
+
+
+});
+
+Route::group(['middleware' => ['TeacherAuth']], function () {
+
+    Route::view('/teacher/login', 'Teacher.TeacherLogin');
+    Route::post('/teacher/login', 'TeacherController@Login');
+
+    Route::get('/teacher/marksheet', 'TeacherController@STDMarkSheet');
+
+    Route::get('/teacher/logout', function () {
+        Session()->forget('Teacher');
+        return redirect('/');
+    });
 });

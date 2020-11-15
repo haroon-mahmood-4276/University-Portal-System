@@ -43,12 +43,22 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+
         ],
 
         'AdminAuth' => [
             \Illuminate\Session\Middleware\StartSession::class,
-            \App\Http\Middleware\UserAuth::class
+            \App\Http\Middleware\AdminAuth::class
         ],
+
+        'TeacherAuth' => [
+            \Illuminate\Session\Middleware\StartSession::class,
+            \App\Http\Middleware\TeacherAuth::class
+        ],
+
+        'ApiAuth'=>[
+            \App\Http\Middleware\ApiAuth::class
+        ]
     ];
 
     /**

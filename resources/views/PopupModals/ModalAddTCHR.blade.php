@@ -65,10 +65,6 @@
                                         <label for="cbCountry">Country</label>
                                         <select name="cbCountry" class="custom-select d-block" id="cbCountry" required>
                                             <option value="000" selected>Select</option>
-                                            @foreach ($Country as $item)
-                                                <option value="{{ $item->CC_CntryCode }}">{{ $item->CC_CntryName }}
-                                                </option>
-                                            @endforeach
                                         </select>
                                     </div>
 
@@ -82,12 +78,6 @@
                                     <div class="col-md-6 mb-3">
                                         <label for="cbSchool">School</label>
                                         <select name="cbSchool" class="custom-select d-block" id="cbSchool" required>
-                                            <option value="00" selected>Select</option>
-                                            @foreach ($Schools as $item)
-                                                <option value="{{ $item->SCL_SchoolCode }}">
-                                                    {{ $item->SCL_SchoolName . ' ( ' . $item->SCL_SchoolAbb . ' )' }}
-                                                </option>
-                                            @endforeach
                                         </select>
                                     </div>
 

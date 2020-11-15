@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class UserAuth
+class ApiAuth
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,8 @@ class UserAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->path() == "admin/login" && $request->session()->has('Admin')) {
-            return redirect('admin/dashboard');
-        } elseif ($request->path() != "admin/login" && !$request->session()->has('Admin')) {
-            return redirect('admin/login');
+        if (!$request->session()->has('Admin') && !$request->session()->has('Teacher') && !$request->session()->has('Student')) {
+            return redirect('/');
         }
         return $next($request);
     }

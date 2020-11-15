@@ -2,10 +2,14 @@ $(document).ready(function () {
 
     $("#mySTDBtn").click(function () {
         $("#mySTDModal").modal();
+        GetCountries();
+        GetSchools();
     });
 
     $("#myTCHRBtn").click(function () {
         $("#myTCHRModal").modal();
+        GetCountries();
+        GetSchools();
     });
 
     $("#myProgramBtn").click(function () {
@@ -17,6 +21,43 @@ $(document).ready(function () {
     });
 
     //
+    function GetCountries() {
+
+        var Data = "";
+
+        $.ajax({
+            type: "get",
+            url: '/api/countries',
+            dataType: 'json',
+            success: function (response) {
+                Data += '<option value="000" selected>Select</option>';
+                for (let index = 0; index < response.length; index++) {
+                    Data += '<option value="' + response[index].CC_CntryCode + '">' + response[index].CC_CntryName + '</option>';
+                }
+                $('#cbCountry').html(Data);
+            }
+        });
+    };
+
+    function GetSchools() {
+
+        var Data = "";
+
+        $.ajax({
+            type: "get",
+            url: '/api/schools',
+            dataType: 'json',
+            success: function (response) {
+                Data += '<option value="000" selected>Select</option>';
+                for (let index = 0; index < response.length; index++) {
+                    Data += '<option value="' + response[index].SCL_SchoolCode + '">' + response[index].SCL_SchoolName + ' ( ' + response[index].SCL_SchoolAbb + ' )' + '</option>';
+                }
+                $('#cbSchool').html(Data);
+            }
+        });
+    };
+
+
     $('#cbCountry').on('change', function () {
 
         var CountryId = $(this).val();
@@ -25,11 +66,8 @@ $(document).ready(function () {
 
         $.ajax({
             type: "get",
-            url: '/admin/GetCitiesByCountryId',
+            url: '/api/countries/' + CountryId + '/cities',
             dataType: 'json',
-            data: {
-                'id': CountryId
-            },
             success: function (response) {
                 Data += '<option value="000" selected>Select</option>';
                 for (let index = 0; index < response.length; index++) {
@@ -48,11 +86,8 @@ $(document).ready(function () {
 
         $.ajax({
             type: "get",
-            url: '/admin/GetProgramBySchoolId',
+            url: '/api/schools/' + SchoolId + '/programs',
             dataType: 'json',
-            data: {
-                'id': SchoolId
-            },
             success: function (response) {
                 Data += '<option value="000" selected>Select</option>';
                 for (let index = 0; index < response.length; index++) {
@@ -71,11 +106,8 @@ $(document).ready(function () {
 
         $.ajax({
             type: "get",
-            url: '/admin/GetSectionByProgramId',
+            url: '/api/programs/' + ProgramId + '/sections',
             dataType: 'json',
-            data: {
-                'id': ProgramId
-            },
             success: function (response) {
                 Data += '<option value="000" selected>Select</option>';
                 for (let index = 0; index < response.length; index++) {

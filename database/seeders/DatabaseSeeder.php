@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             TableUPMSCityCountry::class,
             TableUPMSRoadmap::class,
             TableUPMSPrograms::class,
-            TableUPMSCityCountry::class,
             TableUPMSSchools::class,
             TableUPMSStudents::class,
             TableUPMSTeachers::class

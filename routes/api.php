@@ -14,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::group(['middleware' => ['ApiAuth']], function () {
+    //APIs
+});
+Route::get('/countries', 'ApiController@GetCountries');
+Route::get('/cities', 'ApiController@GetSchools');
+Route::get('/schools', 'ApiController@GetSchools');
+Route::get('/programs', 'ApiController@GetSchools');
+
+Route::get('/countries/{id}/cities', 'ApiController@GetCitiesByCountryId');
+Route::get('/schools/{id}/programs', 'ApiController@GetProgramBySchoolId');
+Route::get('/programs/{id}/sections', 'ApiController@GetSectionByProgramId');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

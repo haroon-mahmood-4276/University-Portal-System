@@ -80,5 +80,5 @@
         </div>
     </div>
 
-    {{ View::make('PopupModals.ModalAddTCHR', ['Country' => $Country, 'Schools' => $Schools]) }}
+    {{ View::make('PopupModals.ModalAddTCHR') }}
 @endsection

@@ -71,10 +71,6 @@
                                         <label for="cbCountry">Country</label>
                                         <select name="cbCountry" class="custom-select d-block" id="cbCountry" required>
                                             <option value="000" selected>Select</option>
-                                            @foreach ($Country as $item)
-                                                <option value="{{ $item->CC_CntryCode }}">{{ $item->CC_CntryName }}
-                                                </option>
-                                            @endforeach
                                         </select>
                                     </div>
 
@@ -90,11 +86,6 @@
                                         <label for="cbSchool">School</label>
                                         <select name="cbSchool" class="custom-select d-block" id="cbSchool" required>
                                             <option value="00" selected>Select</option>
-                                            @foreach ($Schools as $item)
-                                                <option value="{{ $item->SCL_SchoolCode }}">
-                                                    {{ $item->SCL_SchoolName . ' ( ' . $item->SCL_SchoolAbb . ' )' }}
-                                                </option>
-                                            @endforeach
                                         </select>
                                     </div>
 
@@ -114,7 +105,8 @@
 
                                     <div class="col-md-12 mb-3">
                                         <label for="cbCurrentSemester">Current Semester</label>
-                                        <select name="cbCurrentSemester" class="custom-select d-block" id="cbCurrentSemester" required>
+                                        <select name="cbCurrentSemester" class="custom-select d-block"
+                                            id="cbCurrentSemester" required>
                                             <option value="0" selected>Select</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -129,8 +121,8 @@
 
                                     <div class="col-md-12 mb-3">
                                         <label for="txtAddress">Address</label>
-                                            <textarea class="form-control" id="txtAddress" name="txtAddress"
-                                                placeholder="Address" rows="4" maxlength="150" required></textarea>
+                                        <textarea class="form-control" id="txtAddress" name="txtAddress"
+                                            placeholder="Address" rows="4" maxlength="150" required></textarea>
                                     </div>
 
 
