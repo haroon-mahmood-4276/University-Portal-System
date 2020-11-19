@@ -20,7 +20,53 @@ $(document).ready(function () {
         $("#mySchoolModal").modal();
     });
 
+    $("#cbProgram").ready(function () {
+        GetPrograms();
+    });
+
+    $("#cbExamType").ready(function () {
+        GetExams    ();
+    });
+
     //
+
+    function GetPrograms() {
+
+        var Data = "";
+
+        $.ajax({
+            type: "get",
+            url: '/api/programs',
+            dataType: 'json',
+            success: function (response) {
+                Data += '<option value="000" selected>Select</option>';
+                for (let index = 0; index < response.length; index++) {
+                    Data += '<option value="' + response[index].PRG_PCode + '">' + response[index].PRG_ProgramName + '</option>';
+                }
+                $('#cbProgram').html(Data);
+            }
+        });
+    };
+
+    function GetExams() {
+
+        var Data = "";
+
+        $.ajax({
+            type: "get",
+            url: '/api/exams',
+            dataType: 'json',
+            success: function (response) {
+                Data += '<option value="00" selected>Select</option>';
+                for (let index = 0; index < response.length; index++) {
+                    Data += '<option value="' + response[index].EXAM_ID + '">' + response[index].EXAM_Name + '</option>';
+                }
+                $('#cbExamType').html(Data);
+            }
+        });
+    };
+
+
     function GetCountries() {
 
         var Data = "";
@@ -93,12 +139,12 @@ $(document).ready(function () {
                 for (let index = 0; index < response.length; index++) {
                     Data += '<option value="' + response[index].PRG_PCode + '">' + response[index].PRG_ProgramName + '</option>';
                 }
-                $('#cbprogram').html(Data);
+                $('#cbProgram').html(Data);
             }
         });
     });
 
-    $('#cbprogram').on('change', function () {
+    $('#cbProgram').on('change', function () {
 
         var ProgramId = $(this).val();
 
@@ -109,7 +155,7 @@ $(document).ready(function () {
             url: '/api/programs/' + ProgramId + '/sections',
             dataType: 'json',
             success: function (response) {
-                Data += '<option value="000" selected>Select</option>';
+                Data += '<option value="00" selected>Select</option>';
                 for (let index = 0; index < response.length; index++) {
                     Data += '<option value="' + response[index].PRG_SCode + '">' + response[index].PRG_SectionName + '</option>';
                 }

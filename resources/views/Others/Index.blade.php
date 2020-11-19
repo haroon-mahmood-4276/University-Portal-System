@@ -2,11 +2,6 @@
 
 @section('PageTitle', 'Home')
 
-@section('PageHeader')
-    {{ View::make('Others.LoginHeader') }}
-@endsection
-
-
 @section('content')
     <div class="container mt-5 ">
         <div class="row">

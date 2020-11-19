@@ -46,17 +46,12 @@ class Kernel extends HttpKernel
 
         ],
 
-        'AdminAuth' => [
+        'CustomAuth' => [
             \Illuminate\Session\Middleware\StartSession::class,
-            \App\Http\Middleware\AdminAuth::class
+            \App\Http\Middleware\CustomAuth::class
         ],
 
-        'TeacherAuth' => [
-            \Illuminate\Session\Middleware\StartSession::class,
-            \App\Http\Middleware\TeacherAuth::class
-        ],
-
-        'ApiAuth'=>[
+        'ApiAuth' => [
             \App\Http\Middleware\ApiAuth::class
         ]
     ];

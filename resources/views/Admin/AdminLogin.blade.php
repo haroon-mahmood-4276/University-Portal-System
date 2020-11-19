@@ -2,17 +2,13 @@
 
 @section('PageTitle', 'Admin Login')
 
-@section('PageHeader')
-    {{ View::make('Others.LoginHeader') }}
-@endsection
-
 
 @section('content')
     <div class="container col-lg-5 my-5 py-3" style=" background-color: #224172; color: white; border-radius:  10px;">
 
         @if (session('Msg'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>{{ session('Msg.MsgType') }} - {{ session('Msg.MsgD') }}
+            <div class="alert alert-{{ session('Msg.MsgType') }} alert-dismissible fade show" role="alert">
+                <strong>{{ session('Msg.MsgD') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

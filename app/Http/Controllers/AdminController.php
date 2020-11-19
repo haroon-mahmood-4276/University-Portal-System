@@ -15,17 +15,18 @@ use Illuminate\Support\Facades\Crypt;
 
 class AdminController extends Controller
 {
-    public function Login(Request $_Req)
+    public function Login(Request $Req)
     {
-        $Data = UPMSAdmin::where(['ADMIN_ID' => strtolower($_Req->txtUserID)])->first();
-        if (!$Data  || !($_Req->txtPassword == Crypt::decrypt($Data->ADMIN_Password))) {
-            $_Req->session()->put('Msg', [
+        $Data = UPMSAdmin::select('ADMIN_ID AS ID', 'ADMIN_Password', 'ADMIN_FirstName AS FirstName', 'ADMIN_LastName AS LastName')->where(['ADMIN_ID' => strtolower($Req->txtUserID)])->first();
+        if (!$Data  || !($Req->txtPassword == Crypt::decrypt($Data->ADMIN_Password))) {
+            $Req->session()->put('Msg', [
                 'MsgType' => 'danger',
                 'MsgD' => 'User ID or Passowrd is incorrect.'
             ]);
             return redirect('/admin/login');
         } else {
-            $_Req->session()->put('Admin', $Data);
+            $Data['DataType'] = 'Admin';
+            $Req->session()->put('Data', $Data);
             return redirect('/admin/dashboard');
         }
     }
@@ -153,7 +154,7 @@ class AdminController extends Controller
         ])->orderBy('TCHR_ID')->get();
 
 
-            if ($Teachers->isEmpty()) {
+        if ($Teachers->isEmpty()) {
             return view('Admin.AdminStaffList', ['ErrMsg' => 'There is no Teacher in the Database']);
         } else {
             // return $Teachers;
@@ -295,7 +296,7 @@ class AdminController extends Controller
     public function AddSchools(Request $Req)
     {
         try {
-            $Data = UPMSSchools::where(['SCL_SchoolCode' => $Req->txtSCLCode    ])->first();
+            $Data = UPMSSchools::where(['SCL_SchoolCode' => $Req->txtSCLCode])->first();
             if ($Data) {
                 $Req->session()->put('Msg', [
 

@@ -18,10 +18,7 @@ Route::get('/', function () {
     return view('Others.Index');
 });
 
-
-
-
-Route::group(['middleware' => ['AdminAuth']], function () {
+Route::group(['middleware' => ['CustomAuth']], function () {
 
     Route::view('/admin/login', 'Admin.AdminLogin');
     Route::get('/admin/dashboard', 'AdminController@Dashboard');
@@ -39,20 +36,17 @@ Route::group(['middleware' => ['AdminAuth']], function () {
 
     Route::post('/admin/login', 'AdminController@Login');
     Route::get('/admin/logout', function () {
-        Session()->forget('Admin');
+        Session()->forget('Data');
         return redirect('/');
     });
-
-
 });
 
-Route::group(['middleware' => ['TeacherAuth']], function () {
+Route::group(['middleware' => ['CustomAuth']], function () {
 
     Route::view('/teacher/login', 'Teacher.TeacherLogin');
     Route::post('/teacher/login', 'TeacherController@Login');
 
-    Route::get('/teacher/marksheet', 'TeacherController@STDMarkSheet');
-
+    Route::get('/teacher/student/marks', 'TeacherController@STDMarkSheet');
     Route::get('/teacher/logout', function () {
         Session()->forget('Teacher');
         return redirect('/');

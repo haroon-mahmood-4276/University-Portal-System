@@ -21,7 +21,8 @@ Route::group(['middleware' => ['ApiAuth']], function () {
 Route::get('/countries', 'ApiController@GetCountries');
 Route::get('/cities', 'ApiController@GetSchools');
 Route::get('/schools', 'ApiController@GetSchools');
-Route::get('/programs', 'ApiController@GetSchools');
+Route::get('/programs', 'ApiController@GetPrograms');
+Route::get('/exams', 'ApiController@GetExams');
 
 Route::get('/countries/{id}/cities', 'ApiController@GetCitiesByCountryId');
 Route::get('/schools/{id}/programs', 'ApiController@GetProgramBySchoolId');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\UPMSCityCountry;
 use App\Models\UPMSPrograms;
 use App\Models\UPMSSchools;
+use App\Models\UPMSExams;
 
 class ApiController extends Controller
 {
@@ -23,7 +24,17 @@ class ApiController extends Controller
 
     public function GetSchools()
     {
-        return response()->json(UPMSSchools::all());
+        return response()->json(UPMSSchools::select('SCL_SchoolCode', 'SCL_SchoolName', 'SCL_SchoolAbb')->get());
+    }
+
+    public function GetPrograms()
+    {
+        return response()->json(UPMSPrograms::select('PRG_PCode', 'PRG_ProgramName')->get());
+    }
+
+    public function GetExams()
+    {
+        return response()->json(UPMSExams::select('EXAM_ID', 'EXAM_Name')->get());
     }
 
     public function GetProgramBySchoolId($id)

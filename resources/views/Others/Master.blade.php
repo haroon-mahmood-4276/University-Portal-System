@@ -20,9 +20,8 @@
 
     {{-- Header --}}
     <div>
-        @yield('PageHeader')
+        {{ View::make('Others.MainHeader') }}
     </div>
-
 
     {{-- Middle Container --}}
     <div>
@@ -44,7 +43,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
-    <script src="https://kit.fontawesome.com/7c58c9e194.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/dfc786dc18.js" crossorigin="anonymous"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

@@ -16,9 +16,8 @@ class CreateUpmsStdmarks extends Migration
     {
         Schema::create('upms_stdmarks', function (Blueprint $table) {
             $table->string('SM_STDRollNo', 11);
-            $table->string('SM_ExamType', 10)->nullable();
-            $table->string('SM_ExamName', 50)->nullable();
-            $table->string('SM_RMCourseCode', 10)->nullable();
+            $table->string('SM_EXAMID', 10)->nullable();
+            $table->string('SM_SubjectName', 50)->nullable();
             $table->string('SM_PRGPCode', 3)->nullable();
             $table->string('SM_PRGSCode', 2)->nullable();
             $table->string('SM_Date', 15)->nullable();

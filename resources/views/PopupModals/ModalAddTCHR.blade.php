@@ -83,7 +83,7 @@
 
                                     <div class="col-md-6 mb-3">
                                         <label for="cbprogram">Program</label>
-                                        <select name="cbProgram" class="custom-select d-block" id="cbprogram" required>
+                                        <select name="cbProgram" class="custom-select d-block" id="cbProgram" required>
                                             <option value="000" selected>Select</option>
                                         </select>
                                     </div>

@@ -2,10 +2,6 @@
 
 @section('PageTitle', 'Dashboard')
 
-@section('PageHeader')
-    {{ View::make('Admin.AdminLayout.AdminHeader') }}
-@endsection
-
 @section('content')
     <div class="container mb-5 text-center">
         <!-- UMT Numbers -->

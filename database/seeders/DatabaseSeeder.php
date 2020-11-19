@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             TableUPMSPrograms::class,
             TableUPMSSchools::class,
             TableUPMSStudents::class,
-            TableUPMSTeachers::class
+            TableUPMSTeachers::class,
+            TableUPMSExams::class
         ]);
     }
 }

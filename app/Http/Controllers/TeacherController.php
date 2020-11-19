@@ -38,6 +38,7 @@ class TeacherController extends Controller
 
     public function STDMarkSheet()
     {
+        
         return view('Teacher.TeacherMarksSheet');
     }
 }

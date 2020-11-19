@@ -2,10 +2,6 @@
 
 @section('PageTitle', 'Staff List')
 
-@section('PageHeader')
-    {{ View::make('Admin.AdminLayout.AdminHeader') }}
-@endsection
-
 @section('content')
     @php
     $SrNo = 0;

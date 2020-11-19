@@ -2,11 +2,6 @@
 
 @section('PageTitle', 'Teacher Login')
 
-@section('PageHeader')
-    {{ View::make('Others.LoginHeader') }}
-@endsection
-
-
 @section('content')
     <div class="container col-lg-5 my-5 py-3" style=" background-color: #224172; color: white; border-radius:  10px;">
 
