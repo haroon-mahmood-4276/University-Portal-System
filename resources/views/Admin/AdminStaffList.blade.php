@@ -64,7 +64,7 @@
                                 <td>{{ $TchrRow->TCHR_Post }}</td>
                                 <td>{{ $TchrRow->SchoolName . ' ( ' . $TchrRow->SchoolAbb . ' )' }}</td>
                                 <td class="link text-center">
-                                    <a class="PDelete" href="/admin/teacher/delete/{{ $TchrRow->TCHR_ID }}"
+                                    <a class="PDelete" href="/admin/teachers/delete/{{ $TchrRow->TCHR_ID }}"
                                         onClick="return confirm('Are you sure you want to delete?')"><i
                                             class="far fa-trash-alt" style="color: #224172" aria-hidden="true"></i></a>
                                 </td>

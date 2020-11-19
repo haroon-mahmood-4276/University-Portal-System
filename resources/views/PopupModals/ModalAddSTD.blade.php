@@ -2,7 +2,7 @@
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form method="POST" action="/admin/student/add" name="addstd">
+            <form method="POST" action="/admin/students/add" name="addstd">
 
                 @csrf
                 <!-- Modal Header -->

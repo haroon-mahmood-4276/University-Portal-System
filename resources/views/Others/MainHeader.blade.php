@@ -37,13 +37,13 @@
                         <a class="nav-link" href="{{ url('/admin/dashboard') }}">
                             <span style="color: #224172;">Dashboard</span></a>
                     </li>
-                    <li class="nav-item mx-1 {{ Request::is('admin/student-list') ? 'active' : null }}">
-                        <a class="nav-link" href="{{ url('/admin/student-list') }}">
+                    <li class="nav-item mx-1 {{ Request::is('admin/students') ? 'active' : null }}">
+                        <a class="nav-link" href="{{ url('/admin/students') }}">
                             <span style="color: #224172;">Student List</span>
                         </a>
                     </li>
-                    <li class="nav-item mx-1 {{ Request::is('admin/staff-list') ? 'active' : null }}">
-                        <a class="nav-link" href="{{ url('/admin/staff-list') }}">
+                    <li class="nav-item mx-1 {{ Request::is('admin/teachers') ? 'active' : null }}">
+                        <a class="nav-link" href="{{ url('/admin/teachers') }}">
                             <span style="color: #224172;">Staff List</span></a>
                     </li>
                 @elseif (session('Data.DataType') == 'Teacher')
@@ -51,8 +51,8 @@
                         <a class="nav-link" href="{{ url('/teacher/attendance') }}">
                             <span style="color: #224172;">Student Attendance</span></a>
                     </li>
-                    <li class="nav-item mx-1 {{ Request::is('teacher/student/marks') ? 'active' : null }}">
-                        <a class="nav-link" id="STDMarks" href="{{ url('/teacher/student/marks') }}">
+                    <li class="nav-item mx-1 {{ Request::is('teacher/students/marks') ? 'active' : null }}">
+                        <a class="nav-link" id="STDMarks" href="{{ url('/teacher/students/marks') }}">
                             <span style="color: #224172;">Student Marks</span></a>
                     </li>
                 @elseif (session('Data.DataType') == 'Student')

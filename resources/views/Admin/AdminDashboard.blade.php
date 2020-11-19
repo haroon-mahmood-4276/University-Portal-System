@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="card card-animation">
-                        <a href="{{ url('/admin/staff-list') }}" style="text-decoration: none;color: #224172">
+                        <a href="{{ url('/admin/teachers') }}" style="text-decoration: none;color: #224172">
                             <div class="card-body">
                                 <h2 class='card-title'>{{ $TeachersCount }}</h2>
                                 <p class="card-text">Faculty Member(s)</p>
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="card card-animation">
-                        <a href="{{ url('/admin/student-list') }}" style="text-decoration: none;color: #224172;">
+                        <a href="{{ url('/admin/students') }}" style="text-decoration: none;color: #224172;">
                             <div class="card-body">
                                 <h2 class='card-title'>{{ $StudentsCount }}</h2>
                                 <p class="card-text">Student(s)</p>

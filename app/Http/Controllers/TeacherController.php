@@ -15,19 +15,20 @@ use Illuminate\Support\Facades\Crypt;
 
 class TeacherController extends Controller
 {
-    public function Login(Request $_Req)
+    public function Login(Request $Req)
     {
         try {
-            $Data = UPMSTeachers::where(['TCHR_ID' => strtolower($_Req->txtUserID)])->first();
-            if (!$Data  || !($_Req->txtPassword == Crypt::decrypt($Data->TCHR_Password))) {
-                $_Req->session()->put('Msg', [
+            $Data = UPMSTeachers::select('TCHR_ID AS ID', 'TCHR_Password', 'TCHR_FirstName AS FirstName', 'TCHR_LastName AS LastName')->where(['TCHR_ID' => strtolower($Req->txtUserID)])->first();
+            if (!$Data  || !($Req->txtPassword == Crypt::decrypt($Data->TCHR_Password))) {
+                $Req->session()->put('Msg', [
                     'MsgType' => 'danger',
                     'MsgD' => 'User ID or Passowrd is incorrect.'
                 ]);
                 return redirect('/teacher/login');
             } else {
-                $_Req->session()->put('Teacher', $Data);
-                return redirect('/teacher/marksheet');
+                $Data['DataType'] = 'Teacher';
+                $Req->session()->put('Data', $Data);
+                return redirect('/teacher/students/marks');
             }
         } catch (QueryException $ex) {
             dump($ex->getMessage());
@@ -38,7 +39,7 @@ class TeacherController extends Controller
 
     public function STDMarkSheet()
     {
-        
+
         return view('Teacher.TeacherMarksSheet');
     }
 }

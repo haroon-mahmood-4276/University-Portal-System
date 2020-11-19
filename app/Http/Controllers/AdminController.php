@@ -215,7 +215,7 @@ class AdminController extends Controller
                     ]);
                 }
             }
-            return redirect('/admin/staff-list');
+            return redirect('/admin/teachers');
         } catch (QueryException $ex) {
             dd($ex->getMessage());
         } catch (Exception $ex) {

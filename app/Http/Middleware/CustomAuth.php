@@ -24,7 +24,7 @@ class CustomAuth
             }
         } elseif ($request->is('teacher/*')) {
             if ($request->path() == "teacher/login" && $request->session()->has('Data')) {
-                return redirect('teacher/student/marks');
+                return redirect('teacher/students/marks');
             } elseif ($request->path() != "teacher/login" && !$request->session()->has('Data')) {
                 return redirect('teacher/login');
             }

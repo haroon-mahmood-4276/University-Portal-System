@@ -23,13 +23,13 @@ Route::group(['middleware' => ['CustomAuth']], function () {
     Route::view('/admin/login', 'Admin.AdminLogin');
     Route::get('/admin/dashboard', 'AdminController@Dashboard');
 
-    Route::get('/admin/student-list', 'AdminController@StudentList');
-    Route::post('/admin/student/add', 'AdminController@AddSTD');
-    Route::get('/admin/student/delete/{id}', 'AdminController@DeleteSTD');
+    Route::get('/admin/students', 'AdminController@StudentList');
+    Route::post('/admin/students/add', 'AdminController@AddSTD');
+    Route::get('/admin/students/delete/{id}', 'AdminController@DeleteSTD');
 
-    Route::get('/admin/staff-list', 'AdminController@StaffList');
-    Route::post('/admin/teacher/add', 'AdminController@AddTCHR');
-    Route::get('/admin/teacher/delete/{id}', 'AdminController@DeleteTCHR');
+    Route::get('/admin/teachers', 'AdminController@StaffList');
+    Route::post('/admin/teachers/add', 'AdminController@AddTCHR');
+    Route::get('/admin/teachers/delete/{id}', 'AdminController@DeleteTCHR');
 
     Route::post('/admin/programs/add', 'AdminController@AddPrograms');
     Route::post('/admin/schools/add', 'AdminController@AddSchools');
@@ -46,9 +46,9 @@ Route::group(['middleware' => ['CustomAuth']], function () {
     Route::view('/teacher/login', 'Teacher.TeacherLogin');
     Route::post('/teacher/login', 'TeacherController@Login');
 
-    Route::get('/teacher/student/marks', 'TeacherController@STDMarkSheet');
+    Route::get('/teacher/students/marks', 'TeacherController@STDMarkSheet');
     Route::get('/teacher/logout', function () {
-        Session()->forget('Teacher');
+        Session()->forget('Data');
         return redirect('/');
     });
 });

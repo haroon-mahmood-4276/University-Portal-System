@@ -64,7 +64,7 @@
                                 <td>{{ $STDRow->STDProgram . ' ( ' . $STDRow->STDSection . ' )' }}</td>
                                 <td>{{ $STDRow->SchoolName . ' ( ' . $STDRow->SchoolAbb . ' )' }}</td>
                                 <td class="link text-center">
-                                    <a class="PDelete" href="/admin/student/delete/{{ $STDRow->STD_RollNo }}"
+                                    <a class="PDelete" href="/admin/students/delete/{{ $STDRow->STD_RollNo }}"
                                         onClick="return confirm('Are you sure you want to delete?')"><i
                                             class="far fa-trash-alt" style="color: #224172" aria-hidden="true"></i></a>
                                 </td>
