@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\UPMSAdmin;
-use App\Models\UPMSCityCountry;
 use App\Models\UPMSPrograms;
 use App\Models\UPMSSchools;
 use App\Models\UPMSStudents;
@@ -18,6 +17,7 @@ class AdminController extends Controller
     public function Login(Request $Req)
     {
         $Data = UPMSAdmin::select('ADMIN_ID AS ID', 'ADMIN_Password', 'ADMIN_FirstName AS FirstName', 'ADMIN_LastName AS LastName')->where(['ADMIN_ID' => strtolower($Req->txtUserID)])->first();
+        $Data['DataType'] = 'Admin';
         if (!$Data  || !($Req->txtPassword == Crypt::decrypt($Data->ADMIN_Password))) {
             $Req->session()->put('Msg', [
                 'MsgType' => 'danger',

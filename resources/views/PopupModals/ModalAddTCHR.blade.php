@@ -1,6 +1,6 @@
 <div class="modal fade bd-example-modal-lg" id="myTCHRModal" tabindex="-1" role="dialog" data-backdrop="static"
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <form method="POST" action="/admin/teachers/add" name="addstd">
 

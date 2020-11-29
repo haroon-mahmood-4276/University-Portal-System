@@ -27,6 +27,7 @@ Route::get('/exams', 'ApiController@GetExams');
 Route::get('/countries/{id}/cities', 'ApiController@GetCitiesByCountryId');
 Route::get('/schools/{id}/programs', 'ApiController@GetProgramBySchoolId');
 Route::get('/programs/{id}/sections', 'ApiController@GetSectionByProgramId');
+Route::get('/programs/{progamid}/sections/{id}/students', 'ApiController@GetStudentByPIDSID');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

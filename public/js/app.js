@@ -25,7 +25,7 @@ $(document).ready(function () {
     });
 
     $("#cbExamType").ready(function () {
-        GetExams    ();
+        GetExams();
     });
 
     //
@@ -170,5 +170,32 @@ $(document).ready(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
         });
     });
+
+
+    function ShowSTDMARKS(PID, SID) {
+        if (PID == 0 && SID == 0) {
+            var ProgramID = PID;
+            var SectionID = SID;
+        } else {
+            var ProgramID = $(this).val();
+            var SectionID = $(this).val();
+            var TotalMarks = $(this).vabi::before {
+  display: inline-block;
+  content: "";
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z' clip-rule='evenodd'/></svg>");
+  backgroundl();
+        }
+        console.log(ProgramID + ' ' + SectionID);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("STDMARKSList").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("POST", "STDList.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("ProgramID=" + ProgramID + "&SectionID=" + SectionID + "&WorkAction=STDMarks&TotalMarks=" + TotalMarks);
+    }
 
 });

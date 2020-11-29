@@ -7,6 +7,7 @@ use App\Models\UPMSCityCountry;
 use App\Models\UPMSPrograms;
 use App\Models\UPMSSchools;
 use App\Models\UPMSExams;
+use App\Models\UPMSStudents;
 
 class ApiController extends Controller
 {
@@ -47,5 +48,15 @@ class ApiController extends Controller
     {
         $Section = UPMSPrograms::select('PRG_SCode', 'PRG_SectionName')->where('PRG_PCode', $id)->orderBy('PRG_SectionName')->get();
         return response()->json($Section);
+    }
+
+    public function GetStudentByPIDSID($progamid, $id)
+    {
+        $Students = UPMSStudents::select('STD_RollNo', 'STD_FirstName', 'STD_LastName');
+        $Students = $Students->addSelect([
+            'Program' => UPMSPrograms::select('PRG_ProgramName')->whereColumn('PRG_PCode', '=', 'upms_teacher.TCHR_SCLSchoolCode'),
+            'Section' => UPMSPrograms::select('PRG_SectionName')->whereColumn('PRG_SCode', '=', 'upms_teacher.TCHR_SCLSchoolCode')
+        ])->orderBy('TCHR_ID')->get();
+        return response()->json($Students);
     }
 }
