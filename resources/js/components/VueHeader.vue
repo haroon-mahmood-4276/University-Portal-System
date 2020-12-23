@@ -68,25 +68,22 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style lang="css">
-
 .nav-item {
-    border-bottom: 3px solid transparent;
-    border-radius: 3px;
-    padding: 0em .5em;
-    transition: border-bottom 0.2s;
+  border-bottom: 3px solid transparent;
+  border-radius: 3px;
+  padding: 0em 0.5em;
+  transition: border-bottom 0.2s;
 }
 
 .active,
 header,
 .nav-item:hover {
-    border-bottom: 3px solid var(--UNi-color);
-    padding: 0em .5em;
-    border-radius: 3px;
+  border-bottom: 3px solid var(--UNi-color);
+  padding: 0em 0.5em;
+  border-radius: 3px;
 }
 </style>

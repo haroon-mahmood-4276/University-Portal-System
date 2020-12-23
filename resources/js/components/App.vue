@@ -1,11 +1,10 @@
-
-<template >
+<template>
   <div>
     <div>
       <vueheader></vueheader>
     </div>
     <div>
-      <vueindex></vueindex>
+      <router-view></router-view>
     </div>
     <div>
       <vuefooter></vuefooter>
@@ -15,15 +14,15 @@
 
 <script>
 import vueheader from "./VueHeader.vue";
-import vueindex from "./Index.vue";
+// import vueindex from "./Index.vue";
 import vuefooter from "./VueFooter.vue";
 
 export default {
   name: "App",
   components: {
-    vuefooter,
     vueheader,
-    vueindex,
+    // vueindex,
+    vuefooter,
   },
 };
 </script>

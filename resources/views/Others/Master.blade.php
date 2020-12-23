@@ -28,11 +28,11 @@
         </div>
 
         {{-- {{  View::make('Others.Footer') }} --}}
-        <vueapp Data="Hellosssss"></vueapp>
+        <vueapp></vueapp>
     </div>
 
 
-    {{-- <script src="https://kit.fontawesome.com/dfc786dc18.js" crossorigin="anonymous"></script> --}}
+    <script src="https://kit.fontawesome.com/dfc786dc18.js" crossorigin="anonymous"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
     {{-- <script src="{{ asset('js/unijs.js') }}"></script> --}}

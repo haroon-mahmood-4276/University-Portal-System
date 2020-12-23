@@ -14,41 +14,46 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Others.Index');
-});
+Route::any('/{any}', function () {
+    return view('Others.Master');
+})->where('any', '.*');
 
-Route::group(['middleware' => ['CustomAuth']], function () {
 
-    Route::view('/admin/login', 'Admin.AdminLogin');
-    Route::get('/admin/dashboard', 'AdminController@Dashboard');
+// Route::get('/', function () {
+//     return view('Others.Index');
+// });
 
-    Route::get('/admin/students', 'AdminController@StudentList');
-    Route::post('/admin/students/add', 'AdminController@AddSTD');
-    Route::get('/admin/students/delete/{id}', 'AdminController@DeleteSTD');
+// Route::group(['middleware' => ['CustomAuth']], function () {
 
-    Route::get('/admin/teachers', 'AdminController@StaffList');
-    Route::post('/admin/teachers/add', 'AdminController@AddTCHR');
-    Route::get('/admin/teachers/delete/{id}', 'AdminController@DeleteTCHR');
+//     Route::view('/admin/login', 'Admin.AdminLogin');
+//     Route::get('/admin/dashboard', 'AdminController@Dashboard');
 
-    Route::post('/admin/programs/add', 'AdminController@AddPrograms');
-    Route::post('/admin/schools/add', 'AdminController@AddSchools');
+//     Route::get('/admin/students', 'AdminController@StudentList');
+//     Route::post('/admin/students/add', 'AdminController@AddSTD');
+//     Route::get('/admin/students/delete/{id}', 'AdminController@DeleteSTD');
 
-    Route::post('/admin/login', 'AdminController@Login');
-    Route::get('/admin/logout', function () {
-        Session()->forget('Data');
-        return redirect('/');
-    });
-});
+//     Route::get('/admin/teachers', 'AdminController@StaffList');
+//     Route::post('/admin/teachers/add', 'AdminController@AddTCHR');
+//     Route::get('/admin/teachers/delete/{id}', 'AdminController@DeleteTCHR');
 
-Route::group(['middleware' => ['CustomAuth']], function () {
+//     Route::post('/admin/programs/add', 'AdminController@AddPrograms');
+//     Route::post('/admin/schools/add', 'AdminController@AddSchools');
 
-    Route::view('/teacher/login', 'Teacher.TeacherLogin');
-    Route::post('/teacher/login', 'TeacherController@Login');
+//     Route::post('/admin/login', 'AdminController@Login');
+//     Route::get('/admin/logout', function () {
+//         Session()->forget('Data');
+//         return redirect('/');
+//     });
+// });
 
-    Route::get('/teacher/students/marks', 'TeacherController@STDMarkSheet');
-    Route::get('/teacher/logout', function () {
-        Session()->forget('Data');
-        return redirect('/');
-    });
-});
+// Route::group(['middleware' => ['CustomAuth']], function () {
+
+//     Route::view('/teacher/login', 'Teacher.TeacherLogin');
+//     Route::post('/teacher/login', 'TeacherController@Login');
+
+//     Route::get('/teacher/students/marks', 'TeacherController@STDMarkSheet');
+//     Route::get('/teacher/logout', function () {
+//         Session()->forget('Data');
+//         return redirect('/');
+//     });
+// });

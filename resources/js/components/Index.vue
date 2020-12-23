@@ -1,9 +1,7 @@
 <template>
   <div class="container mt-5">
     <div class="row">
-      <VueCard ImgSrc="" CardTitle="Student Portal"></VueCard>
       <div class="col-lg-4 col-md-6 col-sm-12 my-3 text-center">
-        <VueCard ImgSrc="images/card/img_avatar1.png" ButtonText="Open" CardTitle="Student Portal" Class="card-animation" Href="/student/login" Variant="primary"></VueCard>
         <div class="card card-animation">
           <img
             class="card-img-top img-fluid"
@@ -41,7 +39,7 @@
           />
           <div class="card-body">
             <h4 class="card-title">Admin Portal</h4>
-            <a href="/admin/login" class="btn btn-UNi">Open Portal</a>
+            <router-link to="/admin/login" class="btn btn-UNi">Open Portal</router-link>
           </div>
         </div>
       </div>
@@ -49,13 +47,9 @@
   </div>
 </template>
 <script>
-
 export default {
   name: "Index",
-  components: {
-
-  },
+  components: {},
 };
 </script>
-<style lang="css">
-</style>
+<style lang="css"></style>
