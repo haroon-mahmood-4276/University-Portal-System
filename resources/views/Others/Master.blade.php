@@ -13,7 +13,7 @@
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"> --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
 </head>
 
 <body>
@@ -30,9 +30,6 @@
         {{-- {{  View::make('Others.Footer') }} --}}
         <vueapp></vueapp>
     </div>
-
-
-    <script src="https://kit.fontawesome.com/dfc786dc18.js" crossorigin="anonymous"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
     {{-- <script src="{{ asset('js/unijs.js') }}"></script> --}}

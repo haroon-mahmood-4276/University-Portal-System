@@ -1,15 +1,7 @@
 <template>
   <header class="container">
     <nav class="navbar navbar-expand-md navbar-light bg-white">
-      <a class="navbar-brand" href="#">
-        <img
-          src="images/Logo-2.png"
-          width="70"
-          height="57"
-          class="d-inline-block align-top"
-          alt="UNi Logo"
-        />
-      </a>
+      <HeaderBrand Href="#" Src="/images/Logo-2.png" />
 
       <button
         class="navbar-toggler"
@@ -25,10 +17,10 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <!-- Links -->
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" target="_blank" href="#"
-              ><span style="color: #224172">About Us</span></a
-            >
+          <li class="nav-item" v-for="Nav in HeaderNavs" :key="Nav.LinkText">
+            <a class="nav-link" target="_blank" :href="Nav.LinkTo">
+              <span style="color: #224172">{{ Nav.LinkText }}</span>
+            </a>
           </li>
         </ul>
 
@@ -68,7 +60,12 @@
 </template>
 
 <script>
-export default {};
+import HeaderBrand from "./common/HeaderBrand.vue";
+export default {
+  name: "VueHeader",
+  components: { HeaderBrand },
+  props: ["HeaderNavs"],
+};
 </script>
 
 <style lang="css">

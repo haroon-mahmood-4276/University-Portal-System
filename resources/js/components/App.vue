@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <vueheader></vueheader>
+      <vueheader :HeaderNavs="HeaderNavs"></vueheader>
     </div>
     <div>
       <router-view></router-view>
@@ -23,6 +23,11 @@ export default {
     vueheader,
     // vueindex,
     vuefooter,
+  },
+  data() {
+    return {
+      HeaderNavs: [{ LinkText: "About", LinkTo: "#" }],
+    };
   },
 };
 </script>

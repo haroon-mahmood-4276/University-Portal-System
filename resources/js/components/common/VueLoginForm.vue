@@ -4,20 +4,7 @@
       class="container col-lg-5 my-5 py-3"
       style="background-color: #224172; color: white; border-radius: 10px"
     >
-      <!-- @if (session('Msg'))
-      <div
-        class="alert alert-{{ session('Msg.MsgType') }} alert-dismissible fade show"
-        role="alert"
-      >
-        <strong
-          >{{ session("Msg.MsgD") }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </strong>
-      </div>
-      {{ Session::forget("Msg") }}
-      @endif -->
+      <Alert :AlertType="AlertType" :AlertData="AlertData" :AlertTime="AlertTime" />
 
       <form action="/admin/login" method="POST">
         <!-- @csrf -->
@@ -26,6 +13,7 @@
           <div class="input-group mb-3">
             <input
               type="text"
+              v-model="FormData.txtUserID"
               id="txtUserID"
               name="txtUserID"
               class="form-control"
@@ -47,6 +35,7 @@
           <!-- <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> -->
           <input
             type="password"
+            v-model="FormData.txtPassword"
             class="form-control"
             id="txtPassword"
             name="txtPassword"
@@ -56,22 +45,45 @@
           />
         </div>
         <div class="form-actions">
-          <button type="submit" name="submit" class="btn btn-UNi" id="btnLogin">
+          <button type="button" @click="Submit" class="btn btn-UNi" id="btnLogin">
             <i class="fas fa-sign-in-alt" style="color: white"></i>
           </button>
         </div>
       </form>
     </div>
-
-    <div class="container blink" style="margin-top: 10vh">
-      <img class="img-fluid" src="images/Brand-1.png" alt="Brand Logo" />
-    </div>
+    <AnimatedBrand></AnimatedBrand>
   </div>
 </template>
 <script>
+import Alert from "./Alert.vue";
+import AnimatedBrand from "./AnimatedBrand.vue";
+
 export default {
   name: "VueLoginForm",
-  components: {},
+  components: { AnimatedBrand, Alert },
+  props: ["AlertType", "AlertData", "AlertTime"],
+  data() {
+    return {
+      FormData: {
+        txtUserID: null,
+        txtPassword: null,
+      },
+      dismissSecs: this.AlertTime > 5 ? this.AlertTime : 5,
+      dismissCountDown: 0,
+      showDismissibleAlert: false,
+    };
+  },
+  methods: {
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+    },
+    showAlert() {
+      this.dismissCountDown = this.dismissSecs;
+    },
+    Submit() {
+      this.$emit("GetFormData", this.FormData);
+    },
+  },
 };
 </script>
 <style lang="css"></style>

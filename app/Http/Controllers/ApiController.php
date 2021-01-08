@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Crypt;
+use App\Models\UPMSAdmin;
 use Illuminate\Http\Request;
 use App\Models\UPMSCityCountry;
 use App\Models\UPMSPrograms;
@@ -11,6 +13,24 @@ use App\Models\UPMSStudents;
 
 class ApiController extends Controller
 {
+    // public function Login(Request $Req)
+    // {
+    //     if ($Req->is('api/admin/login')) {
+    //         $Data = UPMSAdmin::select('ADMIN_ID AS ID', 'ADMIN_Password AS Password', 'ADMIN_FirstName AS FirstName', 'ADMIN_LastName AS LastName')->where(['ADMIN_ID' => strtolower($Req->txtUserID)])->first();
+    //         $Data['LoginRole'] = 'Admin';
+    //         if (!$Data  || !($Req->txtPassword == Crypt::decrypt($Data->Password))) {
+    //             $Data['Msg'] = [
+    //                 'MsgType' => 'danger',
+    //                 'MsgDesc' => 'User ID or Passowrd is incorrect.'
+    //             ];
+    //             return response()->json($Data);
+    //         } else {
+    //             $Data['LoginRole'] = 'Admin';
+    //             return response()->json($Data);
+    //         }
+    //     }
+    // }
+
     public function GetCountries()
     {
         $Country = UPMSCityCountry::select('CC_CntryCode', 'CC_CntryName')->distinct()->get();

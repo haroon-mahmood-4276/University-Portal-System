@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['ApiAuth']], function () {
     //APIs
 });
+Route::get('/admin/login', 'ApiController@Login');
+
 Route::get('/countries', 'ApiController@GetCountries');
 Route::get('/cities', 'ApiController@GetSchools');
 Route::get('/schools', 'ApiController@GetSchools');
